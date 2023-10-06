@@ -16,14 +16,14 @@ namespace COP4365_P1
     {
         private BindingList<candlestick> candlesticks { get; set; }
         private string stockDataDirectory;
-        private HashSet<string> fileNames;
+        private HashSet<string> stockSymbols;
 
 
-        // when constructing/loading the app, populate the data
+        // when constructing/loading the app, populate the symbol combobox with the symbols in the folder
         public Form1()
         {
             InitializeComponent();
-            fileNames = new HashSet<string>(100);
+            stockSymbols = new HashSet<string>(100);
             string solutionDirectory = Directory.GetCurrentDirectory();
             DirectoryInfo binDirectory = Directory.GetParent(solutionDirectory);
             string binDirectoryString = binDirectory.ToString();
@@ -40,8 +40,15 @@ namespace COP4365_P1
                 // only get symbol before '-' and prevent duplicates
                 string[] splitFileName = fileName.Split('-');
                 string symbol = splitFileName[0];
-                fileNames.Add(symbol);
+                stockSymbols.Add(symbol);
             }
+
+            // add symbols to the stock symbols combobox
+            foreach (string symbol in stockSymbols)
+            {
+                comboBox_stockSymbols.Items.Add(symbol);
+            }
+            comboBox_stockSymbols.SelectedIndex = 0;
 
         }
 
@@ -95,12 +102,6 @@ namespace COP4365_P1
 
                 }
             }
-        }
-        // creates a candlestick
-        private void button_makeCandlestick_Click(object sender, EventArgs e)
-        {
-            candlestick candleStick = new candlestick(DateTime.Now, 1, 2, 3, 4, 5);
-            candlestick cs2 = new candlestick(DateTime.Now, close:15);
         }
 
     }

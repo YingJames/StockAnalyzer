@@ -31,14 +31,15 @@
             this.components = new System.ComponentModel.Container();
             this.openFileDialog_stockLoader = new System.Windows.Forms.OpenFileDialog();
             this.button_loadStock = new System.Windows.Forms.Button();
-            this.button_makeCandlestick = new System.Windows.Forms.Button();
             this.dataGridView_candlesticks = new System.Windows.Forms.DataGridView();
             this.dataGridView_second = new System.Windows.Forms.DataGridView();
-            this.comboBox_stockSymbol = new System.Windows.Forms.ComboBox();
+            this.comboBox_stockSymbols = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.radioButton_daily = new System.Windows.Forms.RadioButton();
             this.radioButton_weekly = new System.Windows.Forms.RadioButton();
             this.radioButton_monthly = new System.Windows.Forms.RadioButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.dateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.openDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.highDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,23 +66,14 @@
             // 
             // button_loadStock
             // 
-            this.button_loadStock.Location = new System.Drawing.Point(835, 546);
+            this.button_loadStock.Location = new System.Drawing.Point(697, 422);
+            this.button_loadStock.Margin = new System.Windows.Forms.Padding(2);
             this.button_loadStock.Name = "button_loadStock";
-            this.button_loadStock.Size = new System.Drawing.Size(202, 119);
+            this.button_loadStock.Size = new System.Drawing.Size(135, 77);
             this.button_loadStock.TabIndex = 0;
             this.button_loadStock.Text = "Load OpenFileDialog";
             this.button_loadStock.UseVisualStyleBackColor = true;
             this.button_loadStock.Click += new System.EventHandler(this.button_openStockOnClick);
-            // 
-            // button_makeCandlestick
-            // 
-            this.button_makeCandlestick.Location = new System.Drawing.Point(666, 567);
-            this.button_makeCandlestick.Name = "button_makeCandlestick";
-            this.button_makeCandlestick.Size = new System.Drawing.Size(127, 77);
-            this.button_makeCandlestick.TabIndex = 2;
-            this.button_makeCandlestick.Text = "Make Candlestick";
-            this.button_makeCandlestick.UseVisualStyleBackColor = true;
-            this.button_makeCandlestick.Click += new System.EventHandler(this.button_makeCandlestick_Click);
             // 
             // dataGridView_candlesticks
             // 
@@ -99,11 +91,12 @@
             this.dataGridView_candlesticks.DataSource = this.candlestickBindingSource;
             this.dataGridView_candlesticks.Dock = System.Windows.Forms.DockStyle.Left;
             this.dataGridView_candlesticks.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView_candlesticks.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView_candlesticks.Name = "dataGridView_candlesticks";
             this.dataGridView_candlesticks.ReadOnly = true;
             this.dataGridView_candlesticks.RowHeadersWidth = 62;
             this.dataGridView_candlesticks.RowTemplate.Height = 28;
-            this.dataGridView_candlesticks.Size = new System.Drawing.Size(369, 804);
+            this.dataGridView_candlesticks.Size = new System.Drawing.Size(246, 523);
             this.dataGridView_candlesticks.TabIndex = 3;
             // 
             // dataGridView_second
@@ -118,17 +111,18 @@
             this.closeDataGridViewTextBoxColumn1,
             this.volumeDataGridViewTextBoxColumn1});
             this.dataGridView_second.DataSource = this.candlestickBindingSource;
-            this.dataGridView_second.Location = new System.Drawing.Point(375, 0);
+            this.dataGridView_second.Location = new System.Drawing.Point(250, 0);
+            this.dataGridView_second.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView_second.Name = "dataGridView_second";
             this.dataGridView_second.RowHeadersWidth = 62;
             this.dataGridView_second.RowTemplate.Height = 28;
-            this.dataGridView_second.Size = new System.Drawing.Size(973, 454);
+            this.dataGridView_second.Size = new System.Drawing.Size(649, 295);
             this.dataGridView_second.TabIndex = 4;
             // 
-            // comboBox_stockSymbol
+            // comboBox_stockSymbols
             // 
-            this.comboBox_stockSymbol.FormattingEnabled = true;
-            this.comboBox_stockSymbol.Items.AddRange(new object[] {
+            this.comboBox_stockSymbols.FormattingEnabled = true;
+            this.comboBox_stockSymbols.Items.AddRange(new object[] {
             "ABT",
             "ACN",
             "ADBE",
@@ -139,24 +133,28 @@
             "ORCL",
             "ORLY",
             "WMT"});
-            this.comboBox_stockSymbol.Location = new System.Drawing.Point(417, 469);
-            this.comboBox_stockSymbol.Name = "comboBox_stockSymbol";
-            this.comboBox_stockSymbol.Size = new System.Drawing.Size(121, 28);
-            this.comboBox_stockSymbol.TabIndex = 5;
+            this.comboBox_stockSymbols.Location = new System.Drawing.Point(278, 330);
+            this.comboBox_stockSymbols.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox_stockSymbols.Name = "comboBox_stockSymbols";
+            this.comboBox_stockSymbols.Size = new System.Drawing.Size(82, 21);
+            this.comboBox_stockSymbols.TabIndex = 5;
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(417, 503);
+            this.dateTimePicker1.Location = new System.Drawing.Point(278, 355);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePicker1.Size = new System.Drawing.Size(135, 20);
             this.dateTimePicker1.TabIndex = 6;
             // 
             // radioButton_daily
             // 
             this.radioButton_daily.AutoSize = true;
-            this.radioButton_daily.Location = new System.Drawing.Point(439, 546);
+            this.radioButton_daily.Checked = true;
+            this.radioButton_daily.Location = new System.Drawing.Point(454, 336);
+            this.radioButton_daily.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton_daily.Name = "radioButton_daily";
-            this.radioButton_daily.Size = new System.Drawing.Size(68, 24);
+            this.radioButton_daily.Size = new System.Drawing.Size(48, 17);
             this.radioButton_daily.TabIndex = 7;
             this.radioButton_daily.TabStop = true;
             this.radioButton_daily.Text = "Daily";
@@ -165,24 +163,42 @@
             // radioButton_weekly
             // 
             this.radioButton_weekly.AutoSize = true;
-            this.radioButton_weekly.Location = new System.Drawing.Point(439, 577);
+            this.radioButton_weekly.Location = new System.Drawing.Point(454, 356);
+            this.radioButton_weekly.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton_weekly.Name = "radioButton_weekly";
-            this.radioButton_weekly.Size = new System.Drawing.Size(85, 24);
+            this.radioButton_weekly.Size = new System.Drawing.Size(61, 17);
             this.radioButton_weekly.TabIndex = 8;
-            this.radioButton_weekly.TabStop = true;
             this.radioButton_weekly.Text = "Weekly";
             this.radioButton_weekly.UseVisualStyleBackColor = true;
             // 
             // radioButton_monthly
             // 
             this.radioButton_monthly.AutoSize = true;
-            this.radioButton_monthly.Location = new System.Drawing.Point(439, 608);
+            this.radioButton_monthly.Location = new System.Drawing.Point(454, 376);
+            this.radioButton_monthly.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton_monthly.Name = "radioButton_monthly";
-            this.radioButton_monthly.Size = new System.Drawing.Size(89, 24);
+            this.radioButton_monthly.Size = new System.Drawing.Size(62, 17);
             this.radioButton_monthly.TabIndex = 9;
-            this.radioButton_monthly.TabStop = true;
             this.radioButton_monthly.Text = "Monthly";
             this.radioButton_monthly.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(275, 315);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 13);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Symbols";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(454, 315);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(37, 13);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Period";
             // 
             // dateDataGridViewTextBoxColumn1
             // 
@@ -298,18 +314,20 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1372, 804);
+            this.ClientSize = new System.Drawing.Size(915, 523);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.radioButton_monthly);
             this.Controls.Add(this.radioButton_weekly);
             this.Controls.Add(this.radioButton_daily);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.comboBox_stockSymbol);
+            this.Controls.Add(this.comboBox_stockSymbols);
             this.Controls.Add(this.dataGridView_second);
             this.Controls.Add(this.dataGridView_candlesticks);
-            this.Controls.Add(this.button_makeCandlestick);
             this.Controls.Add(this.button_loadStock);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_candlesticks)).EndInit();
@@ -324,7 +342,6 @@
 
         private System.Windows.Forms.OpenFileDialog openFileDialog_stockLoader;
         private System.Windows.Forms.Button button_loadStock;
-        private System.Windows.Forms.Button button_makeCandlestick;
         private System.Windows.Forms.DataGridView dataGridView_candlesticks;
         private System.Windows.Forms.BindingSource candlestickBindingSource;
         private System.Windows.Forms.DataGridView dataGridView_second;
@@ -340,11 +357,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn lowDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn closeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn volumeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ComboBox comboBox_stockSymbol;
+        private System.Windows.Forms.ComboBox comboBox_stockSymbols;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.RadioButton radioButton_daily;
         private System.Windows.Forms.RadioButton radioButton_weekly;
         private System.Windows.Forms.RadioButton radioButton_monthly;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
