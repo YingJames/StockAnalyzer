@@ -62,6 +62,12 @@ namespace COP4365_P1
         {
             openFileDialog_stockLoader.InitialDirectory = stockDataDirectory;
 
+            // filter the files using stock symbol
+            string stockSymbol = comboBox_stockSymbols.SelectedItem.ToString() + "*";
+            openFileDialog_stockLoader.Filter = "Daily Stocks|*-Day.csv";
+            openFileDialog_stockLoader.FileName = stockSymbol;
+
+
             // filter the files using the period
             int filterIndex = listBox_period.SelectedIndex+2;
             openFileDialog_stockLoader.FilterIndex = filterIndex;
