@@ -60,9 +60,10 @@
             // 
             // button_loadStock
             // 
-            this.button_loadStock.Location = new System.Drawing.Point(980, 320);
+            this.button_loadStock.Location = new System.Drawing.Point(802, 15);
+            this.button_loadStock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button_loadStock.Name = "button_loadStock";
-            this.button_loadStock.Size = new System.Drawing.Size(202, 118);
+            this.button_loadStock.Size = new System.Drawing.Size(105, 86);
             this.button_loadStock.TabIndex = 0;
             this.button_loadStock.Text = "Load OpenFileDialog";
             this.button_loadStock.UseVisualStyleBackColor = true;
@@ -83,91 +84,85 @@
             this.volumeDataGridViewTextBoxColumn});
             this.dataGridView_candlesticks.DataSource = this.candlestickBindingSource;
             this.dataGridView_candlesticks.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView_candlesticks.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView_candlesticks.Name = "dataGridView_candlesticks";
             this.dataGridView_candlesticks.ReadOnly = true;
             this.dataGridView_candlesticks.RowHeadersWidth = 62;
             this.dataGridView_candlesticks.RowTemplate.Height = 28;
-            this.dataGridView_candlesticks.Size = new System.Drawing.Size(960, 364);
+            this.dataGridView_candlesticks.Size = new System.Drawing.Size(640, 237);
             this.dataGridView_candlesticks.TabIndex = 3;
             // 
             // comboBox_stockSymbols
             // 
             this.comboBox_stockSymbols.FormattingEnabled = true;
-            this.comboBox_stockSymbols.Items.AddRange(new object[] {
-            "ABT",
-            "ACN",
-            "ADBE",
-            "IBM",
-            "LUV",
-            "MSFT",
-            "NVDA",
-            "ORCL",
-            "ORLY",
-            "WMT"});
-            this.comboBox_stockSymbols.Location = new System.Drawing.Point(980, 32);
+            this.comboBox_stockSymbols.Location = new System.Drawing.Point(653, 21);
+            this.comboBox_stockSymbols.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox_stockSymbols.Name = "comboBox_stockSymbols";
-            this.comboBox_stockSymbols.Size = new System.Drawing.Size(121, 28);
+            this.comboBox_stockSymbols.Size = new System.Drawing.Size(135, 21);
             this.comboBox_stockSymbols.TabIndex = 5;
             // 
             // dateTimePicker_startDate
             // 
             this.dateTimePicker_startDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker_startDate.Location = new System.Drawing.Point(980, 96);
+            this.dateTimePicker_startDate.Location = new System.Drawing.Point(653, 62);
+            this.dateTimePicker_startDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimePicker_startDate.Name = "dateTimePicker_startDate";
-            this.dateTimePicker_startDate.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePicker_startDate.Size = new System.Drawing.Size(135, 20);
             this.dateTimePicker_startDate.TabIndex = 6;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(984, 9);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(656, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 20);
+            this.label1.Size = new System.Drawing.Size(46, 13);
             this.label1.TabIndex = 10;
             this.label1.Text = "Symbols";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(984, 199);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(656, 129);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 20);
+            this.label2.Size = new System.Drawing.Size(37, 13);
             this.label2.TabIndex = 11;
             this.label2.Text = "Period";
             // 
             // label_startDate
             // 
             this.label_startDate.AutoSize = true;
-            this.label_startDate.Location = new System.Drawing.Point(984, 73);
+            this.label_startDate.Location = new System.Drawing.Point(656, 47);
+            this.label_startDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_startDate.Name = "label_startDate";
-            this.label_startDate.Size = new System.Drawing.Size(83, 20);
+            this.label_startDate.Size = new System.Drawing.Size(55, 13);
             this.label_startDate.TabIndex = 12;
             this.label_startDate.Text = "Start Date";
             // 
             // label_endDate
             // 
             this.label_endDate.AutoSize = true;
-            this.label_endDate.Location = new System.Drawing.Point(984, 136);
+            this.label_endDate.Location = new System.Drawing.Point(656, 88);
+            this.label_endDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_endDate.Name = "label_endDate";
-            this.label_endDate.Size = new System.Drawing.Size(77, 20);
+            this.label_endDate.Size = new System.Drawing.Size(52, 13);
             this.label_endDate.TabIndex = 13;
             this.label_endDate.Text = "End Date";
             // 
             // dateTimePicker_endDate
             // 
             this.dateTimePicker_endDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker_endDate.Location = new System.Drawing.Point(980, 159);
+            this.dateTimePicker_endDate.Location = new System.Drawing.Point(653, 103);
+            this.dateTimePicker_endDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimePicker_endDate.Name = "dateTimePicker_endDate";
-            this.dateTimePicker_endDate.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePicker_endDate.Size = new System.Drawing.Size(135, 20);
             this.dateTimePicker_endDate.TabIndex = 14;
             // 
             // button_updateStockDataGridView
             // 
-            this.button_updateStockDataGridView.Location = new System.Drawing.Point(1203, 320);
+            this.button_updateStockDataGridView.Location = new System.Drawing.Point(802, 105);
+            this.button_updateStockDataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button_updateStockDataGridView.Name = "button_updateStockDataGridView";
-            this.button_updateStockDataGridView.Size = new System.Drawing.Size(157, 118);
+            this.button_updateStockDataGridView.Size = new System.Drawing.Size(105, 86);
             this.button_updateStockDataGridView.TabIndex = 15;
             this.button_updateStockDataGridView.Text = "Update Start & End Date";
             this.button_updateStockDataGridView.UseVisualStyleBackColor = true;
@@ -176,14 +171,14 @@
             // listBox_period
             // 
             this.listBox_period.FormattingEnabled = true;
-            this.listBox_period.ItemHeight = 20;
             this.listBox_period.Items.AddRange(new object[] {
             "Daily",
             "Weekly",
             "Monthly"});
-            this.listBox_period.Location = new System.Drawing.Point(980, 222);
+            this.listBox_period.Location = new System.Drawing.Point(653, 144);
+            this.listBox_period.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listBox_period.Name = "listBox_period";
-            this.listBox_period.Size = new System.Drawing.Size(200, 64);
+            this.listBox_period.Size = new System.Drawing.Size(135, 43);
             this.listBox_period.TabIndex = 16;
             // 
             // dateDataGridViewTextBoxColumn
@@ -246,9 +241,9 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1372, 805);
+            this.ClientSize = new System.Drawing.Size(915, 523);
             this.Controls.Add(this.listBox_period);
             this.Controls.Add(this.button_updateStockDataGridView);
             this.Controls.Add(this.dateTimePicker_endDate);
@@ -260,6 +255,7 @@
             this.Controls.Add(this.comboBox_stockSymbols);
             this.Controls.Add(this.dataGridView_candlesticks);
             this.Controls.Add(this.button_loadStock);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_candlesticks)).EndInit();
