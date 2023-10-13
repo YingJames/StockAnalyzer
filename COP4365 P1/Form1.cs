@@ -17,12 +17,14 @@ namespace COP4365_P1
         private BindingList<candlestick> candlesticks { get; set; }
         private string stockDataDirectory;
         private HashSet<string> stockSymbols;
-
+        List<candlestick> tempList;
 
         // when constructing/loading the app, populate the symbol combobox with the symbols in the folder
         public Form1()
         {
             InitializeComponent();
+            tempList = new List<candlestick>(1024);
+
             stockSymbols = new HashSet<string>(100);
             string solutionDirectory = Directory.GetCurrentDirectory();
             DirectoryInfo binDirectory = Directory.GetParent(solutionDirectory);
@@ -69,10 +71,7 @@ namespace COP4365_P1
 
                 using (StreamReader sr = new StreamReader(fileName))
                 {
-                    // create the list of candlesticks we will bind to
-                    candlesticks = new BindingList<candlestick>();
-                    // connect the dataGridView to the list of candlesticks
-                    dataGridView_candlesticks.DataSource = candlesticks;
+
 
                     string line;
                     // read the header
@@ -83,25 +82,52 @@ namespace COP4365_P1
                     // if the header is correct
                     if (header == referenceString)
                     {
-                        List<candlestick> tempList = new List<candlestick>(1024);
+                        
                         while ((line = sr.ReadLine()) != null)
                         {
                             // parse for the substrings and delimit with comma
                             candlestick candleStick = new candlestick(line);
                             tempList.Add(candleStick);
-                         
                         }
+                        tempList.Reverse();
 
-                        // make sure the candlesticks are in range
-                        for (int i = tempList.Count-1; i >= 0; i--)
-                        {
-                            candlesticks.Add(tempList[i]);
-                        }
+                        filterStock();
                     }
 
                 }
             }
         }
 
+        private void filterStock()
+        {
+            
+            List<candlestick> reversedTempList = new List<candlestick>();
+            foreach(candlestick candlestick in tempList)
+            {
+                if (candlestick.date > dateTimePicker_endDate.Value)
+                    break;
+
+                if (candlestick.date >= dateTimePicker_startDate.Value)
+                {
+                    reversedTempList.Add(candlestick);
+                }
+            }
+
+            reversedTempList.Reverse();
+
+            // create the list of candlesticks we will bind to
+            candlesticks = new BindingList<candlestick>();
+            // connect the dataGridView to the list of candlesticks
+            dataGridView_candlesticks.DataSource = candlesticks;
+            foreach (candlestick candlestick in reversedTempList)
+            {
+                candlesticks.Add(candlestick);
+            }
+        }
+
+        private void button_updateStockDataGridView_Click(object sender, EventArgs e)
+        {
+            filterStock();
+        }
     }
 }

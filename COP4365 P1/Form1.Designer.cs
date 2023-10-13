@@ -49,6 +49,7 @@
             this.label_startDate = new System.Windows.Forms.Label();
             this.label_endDate = new System.Windows.Forms.Label();
             this.dateTimePicker_endDate = new System.Windows.Forms.DateTimePicker();
+            this.button_updateStockDataGridView = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_candlesticks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.candlestickBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -254,11 +255,22 @@
             this.dateTimePicker_endDate.Size = new System.Drawing.Size(200, 26);
             this.dateTimePicker_endDate.TabIndex = 14;
             // 
+            // button_updateStockDataGridView
+            // 
+            this.button_updateStockDataGridView.Location = new System.Drawing.Point(1203, 320);
+            this.button_updateStockDataGridView.Name = "button_updateStockDataGridView";
+            this.button_updateStockDataGridView.Size = new System.Drawing.Size(157, 118);
+            this.button_updateStockDataGridView.TabIndex = 15;
+            this.button_updateStockDataGridView.Text = "Update";
+            this.button_updateStockDataGridView.UseVisualStyleBackColor = true;
+            this.button_updateStockDataGridView.Click += new System.EventHandler(this.button_updateStockDataGridView_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1372, 805);
+            this.Controls.Add(this.button_updateStockDataGridView);
             this.Controls.Add(this.dateTimePicker_endDate);
             this.Controls.Add(this.label_endDate);
             this.Controls.Add(this.label_startDate);
@@ -302,6 +314,7 @@
         private System.Windows.Forms.Label label_startDate;
         private System.Windows.Forms.Label label_endDate;
         private System.Windows.Forms.DateTimePicker dateTimePicker_endDate;
+        private System.Windows.Forms.Button button_updateStockDataGridView;
     }
 }
 
