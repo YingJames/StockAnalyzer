@@ -32,6 +32,15 @@
             this.openFileDialog_stockLoader = new System.Windows.Forms.OpenFileDialog();
             this.button_loadStock = new System.Windows.Forms.Button();
             this.dataGridView_candlesticks = new System.Windows.Forms.DataGridView();
+            this.comboBox_stockSymbols = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker_startDate = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label_startDate = new System.Windows.Forms.Label();
+            this.label_endDate = new System.Windows.Forms.Label();
+            this.dateTimePicker_endDate = new System.Windows.Forms.DateTimePicker();
+            this.button_updateStockDataGridView = new System.Windows.Forms.Button();
+            this.listBox_period = new System.Windows.Forms.ListBox();
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.openDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.highDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,17 +48,6 @@
             this.closeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.volumeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.candlestickBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.comboBox_stockSymbols = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker_startDate = new System.Windows.Forms.DateTimePicker();
-            this.radioButton_daily = new System.Windows.Forms.RadioButton();
-            this.radioButton_weekly = new System.Windows.Forms.RadioButton();
-            this.radioButton_monthly = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label_startDate = new System.Windows.Forms.Label();
-            this.label_endDate = new System.Windows.Forms.Label();
-            this.dateTimePicker_endDate = new System.Windows.Forms.DateTimePicker();
-            this.button_updateStockDataGridView = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_candlesticks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.candlestickBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -58,7 +56,7 @@
             // 
             this.openFileDialog_stockLoader.Filter = "All Stock files|*.csv|Daily Stocks|*-Day.csv|Weekly Stocks|*-Week.csv|Monthly Sto" +
     "cks|*-Month.csv";
-            this.openFileDialog_stockLoader.Multiselect = true;
+            this.openFileDialog_stockLoader.FilterIndex = 2;
             // 
             // button_loadStock
             // 
@@ -91,6 +89,102 @@
             this.dataGridView_candlesticks.RowTemplate.Height = 28;
             this.dataGridView_candlesticks.Size = new System.Drawing.Size(960, 364);
             this.dataGridView_candlesticks.TabIndex = 3;
+            // 
+            // comboBox_stockSymbols
+            // 
+            this.comboBox_stockSymbols.FormattingEnabled = true;
+            this.comboBox_stockSymbols.Items.AddRange(new object[] {
+            "ABT",
+            "ACN",
+            "ADBE",
+            "IBM",
+            "LUV",
+            "MSFT",
+            "NVDA",
+            "ORCL",
+            "ORLY",
+            "WMT"});
+            this.comboBox_stockSymbols.Location = new System.Drawing.Point(980, 32);
+            this.comboBox_stockSymbols.Name = "comboBox_stockSymbols";
+            this.comboBox_stockSymbols.Size = new System.Drawing.Size(121, 28);
+            this.comboBox_stockSymbols.TabIndex = 5;
+            // 
+            // dateTimePicker_startDate
+            // 
+            this.dateTimePicker_startDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker_startDate.Location = new System.Drawing.Point(980, 96);
+            this.dateTimePicker_startDate.Name = "dateTimePicker_startDate";
+            this.dateTimePicker_startDate.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePicker_startDate.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(984, 9);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 20);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Symbols";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(984, 199);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 20);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Period";
+            // 
+            // label_startDate
+            // 
+            this.label_startDate.AutoSize = true;
+            this.label_startDate.Location = new System.Drawing.Point(984, 73);
+            this.label_startDate.Name = "label_startDate";
+            this.label_startDate.Size = new System.Drawing.Size(83, 20);
+            this.label_startDate.TabIndex = 12;
+            this.label_startDate.Text = "Start Date";
+            // 
+            // label_endDate
+            // 
+            this.label_endDate.AutoSize = true;
+            this.label_endDate.Location = new System.Drawing.Point(984, 136);
+            this.label_endDate.Name = "label_endDate";
+            this.label_endDate.Size = new System.Drawing.Size(77, 20);
+            this.label_endDate.TabIndex = 13;
+            this.label_endDate.Text = "End Date";
+            // 
+            // dateTimePicker_endDate
+            // 
+            this.dateTimePicker_endDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker_endDate.Location = new System.Drawing.Point(980, 159);
+            this.dateTimePicker_endDate.Name = "dateTimePicker_endDate";
+            this.dateTimePicker_endDate.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePicker_endDate.TabIndex = 14;
+            // 
+            // button_updateStockDataGridView
+            // 
+            this.button_updateStockDataGridView.Location = new System.Drawing.Point(1203, 320);
+            this.button_updateStockDataGridView.Name = "button_updateStockDataGridView";
+            this.button_updateStockDataGridView.Size = new System.Drawing.Size(157, 118);
+            this.button_updateStockDataGridView.TabIndex = 15;
+            this.button_updateStockDataGridView.Text = "Update Start & End Date";
+            this.button_updateStockDataGridView.UseVisualStyleBackColor = true;
+            this.button_updateStockDataGridView.Click += new System.EventHandler(this.button_updateStockDataGridView_Click);
+            // 
+            // listBox_period
+            // 
+            this.listBox_period.FormattingEnabled = true;
+            this.listBox_period.ItemHeight = 20;
+            this.listBox_period.Items.AddRange(new object[] {
+            "Daily",
+            "Weekly",
+            "Monthly"});
+            this.listBox_period.Location = new System.Drawing.Point(980, 222);
+            this.listBox_period.Name = "listBox_period";
+            this.listBox_period.Size = new System.Drawing.Size(200, 64);
+            this.listBox_period.TabIndex = 16;
             // 
             // dateDataGridViewTextBoxColumn
             // 
@@ -150,135 +244,18 @@
             // 
             this.candlestickBindingSource.DataSource = typeof(COP4365_P1.candlestick);
             // 
-            // comboBox_stockSymbols
-            // 
-            this.comboBox_stockSymbols.FormattingEnabled = true;
-            this.comboBox_stockSymbols.Items.AddRange(new object[] {
-            "ABT",
-            "ACN",
-            "ADBE",
-            "IBM",
-            "LUV",
-            "MSFT",
-            "NVDA",
-            "ORCL",
-            "ORLY",
-            "WMT"});
-            this.comboBox_stockSymbols.Location = new System.Drawing.Point(980, 32);
-            this.comboBox_stockSymbols.Name = "comboBox_stockSymbols";
-            this.comboBox_stockSymbols.Size = new System.Drawing.Size(121, 28);
-            this.comboBox_stockSymbols.TabIndex = 5;
-            // 
-            // dateTimePicker_startDate
-            // 
-            this.dateTimePicker_startDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker_startDate.Location = new System.Drawing.Point(980, 100);
-            this.dateTimePicker_startDate.Name = "dateTimePicker_startDate";
-            this.dateTimePicker_startDate.Size = new System.Drawing.Size(200, 26);
-            this.dateTimePicker_startDate.TabIndex = 6;
-            // 
-            // radioButton_daily
-            // 
-            this.radioButton_daily.AutoSize = true;
-            this.radioButton_daily.Checked = true;
-            this.radioButton_daily.Location = new System.Drawing.Point(986, 226);
-            this.radioButton_daily.Name = "radioButton_daily";
-            this.radioButton_daily.Size = new System.Drawing.Size(68, 24);
-            this.radioButton_daily.TabIndex = 7;
-            this.radioButton_daily.TabStop = true;
-            this.radioButton_daily.Text = "Daily";
-            this.radioButton_daily.UseVisualStyleBackColor = true;
-            // 
-            // radioButton_weekly
-            // 
-            this.radioButton_weekly.AutoSize = true;
-            this.radioButton_weekly.Location = new System.Drawing.Point(986, 256);
-            this.radioButton_weekly.Name = "radioButton_weekly";
-            this.radioButton_weekly.Size = new System.Drawing.Size(85, 24);
-            this.radioButton_weekly.TabIndex = 8;
-            this.radioButton_weekly.Text = "Weekly";
-            this.radioButton_weekly.UseVisualStyleBackColor = true;
-            // 
-            // radioButton_monthly
-            // 
-            this.radioButton_monthly.AutoSize = true;
-            this.radioButton_monthly.Location = new System.Drawing.Point(986, 290);
-            this.radioButton_monthly.Name = "radioButton_monthly";
-            this.radioButton_monthly.Size = new System.Drawing.Size(89, 24);
-            this.radioButton_monthly.TabIndex = 9;
-            this.radioButton_monthly.Text = "Monthly";
-            this.radioButton_monthly.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(976, 9);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 20);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Symbols";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(982, 203);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 20);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Period";
-            // 
-            // label_startDate
-            // 
-            this.label_startDate.AutoSize = true;
-            this.label_startDate.Location = new System.Drawing.Point(976, 77);
-            this.label_startDate.Name = "label_startDate";
-            this.label_startDate.Size = new System.Drawing.Size(83, 20);
-            this.label_startDate.TabIndex = 12;
-            this.label_startDate.Text = "Start Date";
-            // 
-            // label_endDate
-            // 
-            this.label_endDate.AutoSize = true;
-            this.label_endDate.Location = new System.Drawing.Point(982, 140);
-            this.label_endDate.Name = "label_endDate";
-            this.label_endDate.Size = new System.Drawing.Size(77, 20);
-            this.label_endDate.TabIndex = 13;
-            this.label_endDate.Text = "End Date";
-            // 
-            // dateTimePicker_endDate
-            // 
-            this.dateTimePicker_endDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker_endDate.Location = new System.Drawing.Point(980, 163);
-            this.dateTimePicker_endDate.Name = "dateTimePicker_endDate";
-            this.dateTimePicker_endDate.Size = new System.Drawing.Size(200, 26);
-            this.dateTimePicker_endDate.TabIndex = 14;
-            // 
-            // button_updateStockDataGridView
-            // 
-            this.button_updateStockDataGridView.Location = new System.Drawing.Point(1203, 320);
-            this.button_updateStockDataGridView.Name = "button_updateStockDataGridView";
-            this.button_updateStockDataGridView.Size = new System.Drawing.Size(157, 118);
-            this.button_updateStockDataGridView.TabIndex = 15;
-            this.button_updateStockDataGridView.Text = "Update";
-            this.button_updateStockDataGridView.UseVisualStyleBackColor = true;
-            this.button_updateStockDataGridView.Click += new System.EventHandler(this.button_updateStockDataGridView_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1372, 805);
+            this.Controls.Add(this.listBox_period);
             this.Controls.Add(this.button_updateStockDataGridView);
             this.Controls.Add(this.dateTimePicker_endDate);
             this.Controls.Add(this.label_endDate);
             this.Controls.Add(this.label_startDate);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.radioButton_monthly);
-            this.Controls.Add(this.radioButton_weekly);
-            this.Controls.Add(this.radioButton_daily);
             this.Controls.Add(this.dateTimePicker_startDate);
             this.Controls.Add(this.comboBox_stockSymbols);
             this.Controls.Add(this.dataGridView_candlesticks);
@@ -306,15 +283,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn volumeDataGridViewTextBoxColumn;
         private System.Windows.Forms.ComboBox comboBox_stockSymbols;
         private System.Windows.Forms.DateTimePicker dateTimePicker_startDate;
-        private System.Windows.Forms.RadioButton radioButton_daily;
-        private System.Windows.Forms.RadioButton radioButton_weekly;
-        private System.Windows.Forms.RadioButton radioButton_monthly;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label_startDate;
         private System.Windows.Forms.Label label_endDate;
         private System.Windows.Forms.DateTimePicker dateTimePicker_endDate;
         private System.Windows.Forms.Button button_updateStockDataGridView;
+        private System.Windows.Forms.ListBox listBox_period;
     }
 }
 

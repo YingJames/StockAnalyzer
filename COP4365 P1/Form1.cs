@@ -24,8 +24,9 @@ namespace COP4365_P1
         {
             InitializeComponent();
             tempList = new List<candlestick>(1024);
-
             stockSymbols = new HashSet<string>(100);
+
+            // fetch the directory of Stock Data
             string solutionDirectory = Directory.GetCurrentDirectory();
             DirectoryInfo binDirectory = Directory.GetParent(solutionDirectory);
             string binDirectoryString = binDirectory.ToString();
@@ -51,14 +52,20 @@ namespace COP4365_P1
                 comboBox_stockSymbols.Items.Add(symbol);
             }
             comboBox_stockSymbols.SelectedIndex = 0;
+            listBox_period.SelectedIndex = 0;
 
         }
 
 
-        // on button click, load and create candlesticks for every row in csv
+        // on the openFileDialog click, read the data of the chosen file
         private void button_openStockOnClick(object sender, EventArgs e)
         {
             openFileDialog_stockLoader.InitialDirectory = stockDataDirectory;
+
+            // filter the files using the period
+            int filterIndex = listBox_period.SelectedIndex+2;
+            openFileDialog_stockLoader.FilterIndex = filterIndex;
+
             DialogResult result = openFileDialog_stockLoader.ShowDialog();
             if (result == DialogResult.OK)
             {
