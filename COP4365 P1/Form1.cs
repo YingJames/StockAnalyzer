@@ -73,7 +73,6 @@ namespace COP4365_P1
                     candlesticks = new BindingList<candlestick>();
                     // connect the dataGridView to the list of candlesticks
                     dataGridView_candlesticks.DataSource = candlesticks;
-                    dataGridView_second.DataSource = candlesticks;
 
                     string line;
                     // read the header
