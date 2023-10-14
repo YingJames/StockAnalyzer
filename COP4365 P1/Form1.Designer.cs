@@ -30,8 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.openFileDialog_stockLoader = new System.Windows.Forms.OpenFileDialog();
             this.button_loadStock = new System.Windows.Forms.Button();
             this.dataGridView_candlesticks = new System.Windows.Forms.DataGridView();
@@ -188,19 +190,25 @@
             // 
             // chart_stock
             // 
-            chartArea1.Name = "ChartArea1";
+            chartArea1.Name = "area_OHLC";
+            chartArea2.Name = "area_volume";
             this.chart_stock.ChartAreas.Add(chartArea1);
+            this.chart_stock.ChartAreas.Add(chartArea2);
             this.chart_stock.DataSource = this.candlestickBindingSource;
             legend1.Name = "Legend1";
             this.chart_stock.Legends.Add(legend1);
             this.chart_stock.Location = new System.Drawing.Point(12, 242);
             this.chart_stock.Name = "chart_stock";
-            series1.ChartArea = "ChartArea1";
+            series1.ChartArea = "area_OHLC";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Candlestick;
             series1.Legend = "Legend1";
             series1.Name = "series_OHLC";
             series1.YValuesPerPoint = 4;
+            series2.ChartArea = "area_volume";
+            series2.Legend = "Legend1";
+            series2.Name = "series_volume";
             this.chart_stock.Series.Add(series1);
+            this.chart_stock.Series.Add(series2);
             this.chart_stock.Size = new System.Drawing.Size(891, 281);
             this.chart_stock.TabIndex = 17;
             this.chart_stock.Text = "chart_stock";

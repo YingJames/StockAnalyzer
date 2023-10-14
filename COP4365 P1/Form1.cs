@@ -28,8 +28,22 @@ namespace COP4365_P1
             stockSymbols = new HashSet<string>(100);
 
             // initialize candlestick chart series
+            chart_stock.DataSource = candlesticks;
             Series series_OHLC = chart_stock.Series["series_OHLC"];
             series_OHLC.XValueMember = "date";
+            series_OHLC.XValueType = ChartValueType.DateTime;
+
+            // newest candlesticks on left first
+            Axis xAxis = chart_stock.ChartAreas["area_OHLC"].AxisX;
+            xAxis.IsReversed = true;
+
+            // keep price y-axis on the left
+            chart_stock.ChartAreas["area_OHLC"].AxisY.Enabled = AxisEnabled.False;
+            chart_stock.ChartAreas["area_OHLC"].AxisY2.Enabled = AxisEnabled.True;
+
+            // add axis titles
+            chart_stock.ChartAreas["area_OHLC"].AxisX.Title = "Date";
+            chart_stock.ChartAreas["area_OHLC"].AxisY2.Title = "Price";
             series_OHLC.YValueMembers = "high,low,open,close";
 
             // fetch the directory of Stock Data
