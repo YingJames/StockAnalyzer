@@ -27,10 +27,11 @@ namespace COP4365_P1
             stockSymbols = new HashSet<string>(100);
 
             // fetch the directory of Stock Data
-            string solutionDirectory = Directory.GetCurrentDirectory();
-            DirectoryInfo binDirectory = Directory.GetParent(solutionDirectory);
-            string binDirectoryString = binDirectory.ToString();
-            stockDataDirectory = Path.Combine(binDirectoryString, "Stock Data");
+            string executableDirectory = Directory.GetCurrentDirectory();
+            string binDirectory = Directory.GetParent(executableDirectory).FullName;
+            string projectDirectory = Directory.GetParent(binDirectory).FullName;
+            string solutionDirectory = Directory.GetParent(projectDirectory).FullName;
+            stockDataDirectory = Path.Combine(solutionDirectory, "Stock Data");
 
             // gets filename paths
             string[] fileNamePaths = Directory.GetFiles(stockDataDirectory);
@@ -64,14 +65,13 @@ namespace COP4365_P1
 
             // filter the files using stock symbol
             string stockSymbol = comboBox_stockSymbols.SelectedItem.ToString() + "*";
-            openFileDialog_stockLoader.Filter = "Daily Stocks|*-Day.csv";
             openFileDialog_stockLoader.FileName = stockSymbol;
 
 
             // filter the files using the period
-            int filterIndex = listBox_period.SelectedIndex+2;
-            openFileDialog_stockLoader.FilterIndex = filterIndex;
-
+            /*            int filterIndex = listBox_period.SelectedIndex+2;
+                        openFileDialog_stockLoader.FilterIndex = filterIndex;
+            */
             DialogResult result = openFileDialog_stockLoader.ShowDialog();
             if (result == DialogResult.OK)
             {
@@ -111,6 +111,7 @@ namespace COP4365_P1
             }
         }
 
+        // filters out the candlesticks based on the date time picker
         private void filterStock()
         {
             
@@ -138,6 +139,13 @@ namespace COP4365_P1
             }
         }
 
+        // populates and updates the chart based on current candlesticks
+        private void updateChartStock()
+        {
+    
+        }
+
+        // helper function to trigger filterStock when the Update Button is clicked
         private void button_updateStockDataGridView_Click(object sender, EventArgs e)
         {
             filterStock();
