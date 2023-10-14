@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace COP4365_P1
 {
@@ -25,6 +26,11 @@ namespace COP4365_P1
             InitializeComponent();
             tempList = new List<candlestick>(1024);
             stockSymbols = new HashSet<string>(100);
+
+            // initialize candlestick chart series
+            Series series_OHLC = chart_stock.Series["series_OHLC"];
+            series_OHLC.XValueMember = "date";
+            series_OHLC.YValueMembers = "high,low,open,close";
 
             // fetch the directory of Stock Data
             string executableDirectory = Directory.GetCurrentDirectory();
@@ -105,6 +111,7 @@ namespace COP4365_P1
                         tempList.Reverse();
 
                         filterStock();
+                        updateChartStock();
                     }
 
                 }
@@ -142,13 +149,18 @@ namespace COP4365_P1
         // populates and updates the chart based on current candlesticks
         private void updateChartStock()
         {
-    
+            chart_stock.Titles.Clear();
+            chart_stock.Titles.Add(Path.GetFileNameWithoutExtension(openFileDialog_stockLoader.FileName));
+
+            chart_stock.DataSource = candlesticks;
+            chart_stock.DataBind();
         }
 
         // helper function to trigger filterStock when the Update Button is clicked
         private void button_updateStockDataGridView_Click(object sender, EventArgs e)
         {
             filterStock();
+            updateChartStock();
         }
     }
 }
