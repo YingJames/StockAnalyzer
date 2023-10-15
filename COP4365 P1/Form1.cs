@@ -20,6 +20,11 @@ namespace COP4365_P1
         private HashSet<string> stockSymbols;
         List<candlestick> tempList;
 
+        Series series_OHLC;
+        Series series_volume;
+        ChartArea area_OHLC;
+        ChartArea area_volume;
+
         // when constructing/loading the app, populate the symbol combobox with the symbols in the folder
         public Form1()
         {
@@ -29,22 +34,33 @@ namespace COP4365_P1
 
             // initialize candlestick chart series
             chart_stock.DataSource = candlesticks;
-            Series series_OHLC = chart_stock.Series["series_OHLC"];
-            series_OHLC.XValueMember = "date";
+            series_OHLC = chart_stock.Series["series_OHLC"];
+            series_volume = chart_stock.Series["series_volume"];
+            area_OHLC = chart_stock.ChartAreas["area_OHLC"];
+            area_volume = chart_stock.ChartAreas["area_volume"];
             series_OHLC.XValueType = ChartValueType.DateTime;
+            series_OHLC.XValueMember = "date";
+            series_OHLC.YValueMembers = "high,low,open,close";
 
-            // newest candlesticks on left first
-            Axis xAxis = chart_stock.ChartAreas["area_OHLC"].AxisX;
-            xAxis.IsReversed = true;
+            series_volume.XValueType = ChartValueType.DateTime;
+            series_volume.XValueMember = "date";
+            series_volume.YValueMembers = "volume";
+
+            // newest candlestick objects on left first
+            area_OHLC.AxisX.IsReversed = true;
+            area_volume.AxisX.IsReversed = true;
 
             // keep price y-axis on the left
-            chart_stock.ChartAreas["area_OHLC"].AxisY.Enabled = AxisEnabled.False;
-            chart_stock.ChartAreas["area_OHLC"].AxisY2.Enabled = AxisEnabled.True;
+            area_OHLC.AxisY.Enabled = AxisEnabled.False;
+            area_OHLC.AxisY2.Enabled = AxisEnabled.True;
+            area_volume.AxisY.Enabled = AxisEnabled.False;
+            area_volume.AxisY2.Enabled = AxisEnabled.True;
 
             // add axis titles
-            chart_stock.ChartAreas["area_OHLC"].AxisX.Title = "Date";
-            chart_stock.ChartAreas["area_OHLC"].AxisY2.Title = "Price";
-            series_OHLC.YValueMembers = "high,low,open,close";
+            area_OHLC.AxisX.Title = "Date";
+            area_OHLC.AxisY2.Title = "Price";
+            area_volume.AxisX.Title = "Date";
+            area_volume.AxisY2.Title = "Volume";
 
             // fetch the directory of Stock Data
             string executableDirectory = Directory.GetCurrentDirectory();
@@ -73,7 +89,6 @@ namespace COP4365_P1
                 comboBox_stockSymbols.Items.Add(symbol);
             }
             comboBox_stockSymbols.SelectedIndex = 0;
-            listBox_period.SelectedIndex = 0;
 
         }
 
@@ -87,11 +102,6 @@ namespace COP4365_P1
             string stockSymbol = comboBox_stockSymbols.SelectedItem.ToString() + "*";
             openFileDialog_stockLoader.FileName = stockSymbol;
 
-
-            // filter the files using the period
-            /*            int filterIndex = listBox_period.SelectedIndex+2;
-                        openFileDialog_stockLoader.FilterIndex = filterIndex;
-            */
             DialogResult result = openFileDialog_stockLoader.ShowDialog();
             if (result == DialogResult.OK)
             {
@@ -104,7 +114,6 @@ namespace COP4365_P1
 
                 using (StreamReader sr = new StreamReader(fileName))
                 {
-
 
                     string line;
                     // read the header

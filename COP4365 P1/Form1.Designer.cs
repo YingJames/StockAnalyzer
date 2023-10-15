@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.openFileDialog_stockLoader = new System.Windows.Forms.OpenFileDialog();
             this.button_loadStock = new System.Windows.Forms.Button();
             this.dataGridView_candlesticks = new System.Windows.Forms.DataGridView();
             this.comboBox_stockSymbols = new System.Windows.Forms.ComboBox();
             this.dateTimePicker_startDate = new System.Windows.Forms.DateTimePicker();
             this.label_stockSymbols = new System.Windows.Forms.Label();
-            this.label_period = new System.Windows.Forms.Label();
+            this.label_periodTip = new System.Windows.Forms.Label();
             this.label_startDate = new System.Windows.Forms.Label();
             this.label_endDate = new System.Windows.Forms.Label();
             this.dateTimePicker_endDate = new System.Windows.Forms.DateTimePicker();
             this.button_updateStockDataGridView = new System.Windows.Forms.Button();
-            this.listBox_period = new System.Windows.Forms.ListBox();
             this.chart_stock = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label_chartZoomTip = new System.Windows.Forms.Label();
             this.candlestickBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.openDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,10 +66,10 @@
             // 
             // button_loadStock
             // 
-            this.button_loadStock.Location = new System.Drawing.Point(802, 15);
+            this.button_loadStock.Location = new System.Drawing.Point(802, 21);
             this.button_loadStock.Margin = new System.Windows.Forms.Padding(2);
             this.button_loadStock.Name = "button_loadStock";
-            this.button_loadStock.Size = new System.Drawing.Size(105, 86);
+            this.button_loadStock.Size = new System.Drawing.Size(103, 55);
             this.button_loadStock.TabIndex = 0;
             this.button_loadStock.Text = "Load OpenFileDialog";
             this.button_loadStock.UseVisualStyleBackColor = true;
@@ -95,7 +95,7 @@
             this.dataGridView_candlesticks.ReadOnly = true;
             this.dataGridView_candlesticks.RowHeadersWidth = 62;
             this.dataGridView_candlesticks.RowTemplate.Height = 28;
-            this.dataGridView_candlesticks.Size = new System.Drawing.Size(640, 237);
+            this.dataGridView_candlesticks.Size = new System.Drawing.Size(649, 192);
             this.dataGridView_candlesticks.TabIndex = 3;
             // 
             // comboBox_stockSymbols
@@ -126,14 +126,14 @@
             this.label_stockSymbols.TabIndex = 10;
             this.label_stockSymbols.Text = "Symbols";
             // 
-            // label_period
+            // label_periodTip
             // 
-            this.label_period.AutoSize = true;
-            this.label_period.Location = new System.Drawing.Point(656, 129);
-            this.label_period.Name = "label_period";
-            this.label_period.Size = new System.Drawing.Size(37, 13);
-            this.label_period.TabIndex = 11;
-            this.label_period.Text = "Period";
+            this.label_periodTip.AutoSize = true;
+            this.label_periodTip.Location = new System.Drawing.Point(799, 6);
+            this.label_periodTip.Name = "label_periodTip";
+            this.label_periodTip.Size = new System.Drawing.Size(201, 13);
+            this.label_periodTip.TabIndex = 11;
+            this.label_periodTip.Text = "* Period can be set in the OpenFileDialog";
             // 
             // label_startDate
             // 
@@ -166,52 +166,52 @@
             // 
             // button_updateStockDataGridView
             // 
-            this.button_updateStockDataGridView.Location = new System.Drawing.Point(802, 105);
+            this.button_updateStockDataGridView.Location = new System.Drawing.Point(909, 21);
             this.button_updateStockDataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.button_updateStockDataGridView.Name = "button_updateStockDataGridView";
-            this.button_updateStockDataGridView.Size = new System.Drawing.Size(105, 86);
+            this.button_updateStockDataGridView.Size = new System.Drawing.Size(91, 55);
             this.button_updateStockDataGridView.TabIndex = 15;
             this.button_updateStockDataGridView.Text = "Update Start & End Date";
             this.button_updateStockDataGridView.UseVisualStyleBackColor = true;
             this.button_updateStockDataGridView.Click += new System.EventHandler(this.button_updateStockDataGridView_Click);
             // 
-            // listBox_period
-            // 
-            this.listBox_period.FormattingEnabled = true;
-            this.listBox_period.Items.AddRange(new object[] {
-            "Daily",
-            "Weekly",
-            "Monthly"});
-            this.listBox_period.Location = new System.Drawing.Point(653, 144);
-            this.listBox_period.Margin = new System.Windows.Forms.Padding(2);
-            this.listBox_period.Name = "listBox_period";
-            this.listBox_period.Size = new System.Drawing.Size(135, 43);
-            this.listBox_period.TabIndex = 16;
-            // 
             // chart_stock
             // 
-            chartArea1.Name = "area_OHLC";
-            chartArea2.Name = "area_volume";
-            this.chart_stock.ChartAreas.Add(chartArea1);
-            this.chart_stock.ChartAreas.Add(chartArea2);
+            chartArea3.AlignWithChartArea = "area_volume";
+            chartArea3.CursorX.IsUserEnabled = true;
+            chartArea3.CursorX.IsUserSelectionEnabled = true;
+            chartArea3.Name = "area_OHLC";
+            chartArea4.Name = "area_volume";
+            this.chart_stock.ChartAreas.Add(chartArea3);
+            this.chart_stock.ChartAreas.Add(chartArea4);
             this.chart_stock.DataSource = this.candlestickBindingSource;
-            legend1.Name = "Legend1";
-            this.chart_stock.Legends.Add(legend1);
-            this.chart_stock.Location = new System.Drawing.Point(12, 242);
+            legend2.Name = "Legend1";
+            this.chart_stock.Legends.Add(legend2);
+            this.chart_stock.Location = new System.Drawing.Point(0, 197);
             this.chart_stock.Name = "chart_stock";
-            series1.ChartArea = "area_OHLC";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Candlestick;
-            series1.Legend = "Legend1";
-            series1.Name = "series_OHLC";
-            series1.YValuesPerPoint = 4;
-            series2.ChartArea = "area_volume";
-            series2.Legend = "Legend1";
-            series2.Name = "series_volume";
-            this.chart_stock.Series.Add(series1);
-            this.chart_stock.Series.Add(series2);
-            this.chart_stock.Size = new System.Drawing.Size(891, 281);
+            series3.ChartArea = "area_OHLC";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Candlestick;
+            series3.Legend = "Legend1";
+            series3.Name = "series_OHLC";
+            series3.YValuesPerPoint = 4;
+            series4.ChartArea = "area_volume";
+            series4.Legend = "Legend1";
+            series4.Name = "series_volume";
+            this.chart_stock.Series.Add(series3);
+            this.chart_stock.Series.Add(series4);
+            this.chart_stock.Size = new System.Drawing.Size(1052, 418);
             this.chart_stock.TabIndex = 17;
             this.chart_stock.Text = "chart_stock";
+            // 
+            // label_chartZoomTip
+            // 
+            this.label_chartZoomTip.AutoSize = true;
+            this.label_chartZoomTip.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_chartZoomTip.Location = new System.Drawing.Point(655, 172);
+            this.label_chartZoomTip.Name = "label_chartZoomTip";
+            this.label_chartZoomTip.Size = new System.Drawing.Size(285, 20);
+            this.label_chartZoomTip.TabIndex = 18;
+            this.label_chartZoomTip.Text = "* Click and drag on the chart to zoom in";
             // 
             // candlestickBindingSource
             // 
@@ -275,14 +275,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(915, 523);
+            this.ClientSize = new System.Drawing.Size(1053, 627);
+            this.Controls.Add(this.label_chartZoomTip);
             this.Controls.Add(this.chart_stock);
-            this.Controls.Add(this.listBox_period);
             this.Controls.Add(this.button_updateStockDataGridView);
             this.Controls.Add(this.dateTimePicker_endDate);
             this.Controls.Add(this.label_endDate);
             this.Controls.Add(this.label_startDate);
-            this.Controls.Add(this.label_period);
+            this.Controls.Add(this.label_periodTip);
             this.Controls.Add(this.label_stockSymbols);
             this.Controls.Add(this.dateTimePicker_startDate);
             this.Controls.Add(this.comboBox_stockSymbols);
@@ -314,13 +314,13 @@
         private System.Windows.Forms.ComboBox comboBox_stockSymbols;
         private System.Windows.Forms.DateTimePicker dateTimePicker_startDate;
         private System.Windows.Forms.Label label_stockSymbols;
-        private System.Windows.Forms.Label label_period;
+        private System.Windows.Forms.Label label_periodTip;
         private System.Windows.Forms.Label label_startDate;
         private System.Windows.Forms.Label label_endDate;
         private System.Windows.Forms.DateTimePicker dateTimePicker_endDate;
         private System.Windows.Forms.Button button_updateStockDataGridView;
-        private System.Windows.Forms.ListBox listBox_period;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart_stock;
+        private System.Windows.Forms.Label label_chartZoomTip;
     }
 }
 
