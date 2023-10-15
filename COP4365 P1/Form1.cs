@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
@@ -179,11 +175,43 @@ namespace COP4365_P1
             chart_stock.DataBind();
         }
 
+
+        // changes the color of the candlesticks based on open close values before chart paint
+        private void chart_stock_PrePaint(object sender, ChartPaintEventArgs e)
+        {
+
+            if (e.ChartElement == series_OHLC)
+            {
+                foreach (DataPoint dataPoint in series_OHLC.Points)
+                {
+                    // Change the color of the data point based on its open and close values
+                    if (dataPoint.YValues[2] < dataPoint.YValues[3]) 
+                    {
+                        dataPoint.Color = Color.Green; // Green color for up days
+                    }
+                    else
+                    {
+                        dataPoint.Color = Color.Red; // Red color for down days
+                    }
+                }
+            }
+        }
+
+        // resets the chart areas zoom on click
+        private void button_resetZoom_Click(object sender, EventArgs e)
+        {
+            area_OHLC.AxisX.ScaleView.ZoomReset();
+            area_volume.AxisX.ScaleView.ZoomReset();
+        }
+
         // helper function to trigger filterStock when the Update Button is clicked
         private void button_updateStockDataGridView_Click(object sender, EventArgs e)
         {
+            area_OHLC.AxisX.ScaleView.ZoomReset();
+            area_volume.AxisX.ScaleView.ZoomReset();
             filterStock();
             updateChartStock();
         }
+
     }
 }

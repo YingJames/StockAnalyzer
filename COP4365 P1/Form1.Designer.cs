@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.openFileDialog_stockLoader = new System.Windows.Forms.OpenFileDialog();
             this.button_loadStock = new System.Windows.Forms.Button();
             this.dataGridView_candlesticks = new System.Windows.Forms.DataGridView();
@@ -47,6 +47,7 @@
             this.button_updateStockDataGridView = new System.Windows.Forms.Button();
             this.chart_stock = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label_chartZoomTip = new System.Windows.Forms.Label();
+            this.button_resetZoom = new System.Windows.Forms.Button();
             this.candlestickBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.openDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -177,31 +178,34 @@
             // 
             // chart_stock
             // 
-            chartArea3.AlignWithChartArea = "area_volume";
-            chartArea3.CursorX.IsUserEnabled = true;
-            chartArea3.CursorX.IsUserSelectionEnabled = true;
-            chartArea3.Name = "area_OHLC";
-            chartArea4.Name = "area_volume";
-            this.chart_stock.ChartAreas.Add(chartArea3);
-            this.chart_stock.ChartAreas.Add(chartArea4);
+            chartArea1.AlignWithChartArea = "area_volume";
+            chartArea1.CursorX.IsUserEnabled = true;
+            chartArea1.CursorX.IsUserSelectionEnabled = true;
+            chartArea1.Name = "area_OHLC";
+            chartArea2.CursorX.IsUserEnabled = true;
+            chartArea2.CursorX.IsUserSelectionEnabled = true;
+            chartArea2.Name = "area_volume";
+            this.chart_stock.ChartAreas.Add(chartArea1);
+            this.chart_stock.ChartAreas.Add(chartArea2);
             this.chart_stock.DataSource = this.candlestickBindingSource;
-            legend2.Name = "Legend1";
-            this.chart_stock.Legends.Add(legend2);
+            legend1.Name = "Legend1";
+            this.chart_stock.Legends.Add(legend1);
             this.chart_stock.Location = new System.Drawing.Point(0, 197);
             this.chart_stock.Name = "chart_stock";
-            series3.ChartArea = "area_OHLC";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Candlestick;
-            series3.Legend = "Legend1";
-            series3.Name = "series_OHLC";
-            series3.YValuesPerPoint = 4;
-            series4.ChartArea = "area_volume";
-            series4.Legend = "Legend1";
-            series4.Name = "series_volume";
-            this.chart_stock.Series.Add(series3);
-            this.chart_stock.Series.Add(series4);
+            series1.ChartArea = "area_OHLC";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Candlestick;
+            series1.Legend = "Legend1";
+            series1.Name = "series_OHLC";
+            series1.YValuesPerPoint = 4;
+            series2.ChartArea = "area_volume";
+            series2.Legend = "Legend1";
+            series2.Name = "series_volume";
+            this.chart_stock.Series.Add(series1);
+            this.chart_stock.Series.Add(series2);
             this.chart_stock.Size = new System.Drawing.Size(1052, 418);
             this.chart_stock.TabIndex = 17;
             this.chart_stock.Text = "chart_stock";
+            this.chart_stock.PrePaint += new System.EventHandler<System.Windows.Forms.DataVisualization.Charting.ChartPaintEventArgs>(this.chart_stock_PrePaint);
             // 
             // label_chartZoomTip
             // 
@@ -212,6 +216,16 @@
             this.label_chartZoomTip.Size = new System.Drawing.Size(285, 20);
             this.label_chartZoomTip.TabIndex = 18;
             this.label_chartZoomTip.Text = "* Click and drag on the chart to zoom in";
+            // 
+            // button_resetZoom
+            // 
+            this.button_resetZoom.Location = new System.Drawing.Point(946, 150);
+            this.button_resetZoom.Name = "button_resetZoom";
+            this.button_resetZoom.Size = new System.Drawing.Size(95, 41);
+            this.button_resetZoom.TabIndex = 19;
+            this.button_resetZoom.Text = "Reset Chart Zoom";
+            this.button_resetZoom.UseVisualStyleBackColor = true;
+            this.button_resetZoom.Click += new System.EventHandler(this.button_resetZoom_Click);
             // 
             // candlestickBindingSource
             // 
@@ -276,6 +290,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1053, 627);
+            this.Controls.Add(this.button_resetZoom);
             this.Controls.Add(this.label_chartZoomTip);
             this.Controls.Add(this.chart_stock);
             this.Controls.Add(this.button_updateStockDataGridView);
@@ -321,6 +336,7 @@
         private System.Windows.Forms.Button button_updateStockDataGridView;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart_stock;
         private System.Windows.Forms.Label label_chartZoomTip;
+        private System.Windows.Forms.Button button_resetZoom;
     }
 }
 
