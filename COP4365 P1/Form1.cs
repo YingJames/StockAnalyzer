@@ -11,10 +11,13 @@ namespace COP4365_P1
     // main form that the user will use to interact with candlesticks
     public partial class Form1 : Form
     {
+        private static String referenceHeaderString = "\"Ticker\",\"Period\",\"Date\",\"Open\",\"High\",\"Low\",\"Close\",\"Volume\"";
+
         private BindingList<candlestick> candlesticks { get; set; }
         private string stockDataDirectory;
         private HashSet<string> stockSymbols;
         List<candlestick> tempList;
+        Dictionary<String, Dictionary<DateTime, candlestick>> multiFileTempLists;
 
         Series series_OHLC;
         Series series_volume;
@@ -93,52 +96,16 @@ namespace COP4365_P1
         private void button_openStockOnClick(object sender, EventArgs e)
         {
             openFileDialog_stockLoader.InitialDirectory = stockDataDirectory;
-
             // filter the files using stock symbol
             string stockSymbol = comboBox_stockSymbols.SelectedItem.ToString() + "*";
             openFileDialog_stockLoader.FileName = stockSymbol;
 
             DialogResult result = openFileDialog_stockLoader.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                String referenceString = "\"Ticker\",\"Period\",\"Date\",\"Open\",\"High\",\"Low\",\"Close\",\"Volume\"";
-                String fileName = openFileDialog_stockLoader.FileName;
-                Text = fileName;
-
-                // multiselect
-                string[] filenames = openFileDialog_stockLoader.FileNames;
-
-                using (StreamReader sr = new StreamReader(fileName))
-                {
-
-                    string line;
-                    // read the header
-                    string header = sr.ReadLine();
-                    // Read and display lines from the file until the end of
-                    // the file is reached.
-
-                    // if the header is correct
-                    if (header == referenceString)
-                    {
-                        
-                        while ((line = sr.ReadLine()) != null)
-                        {
-                            // parse for the substrings and delimit with comma
-                            candlestick candleStick = new candlestick(line);
-                            tempList.Add(candleStick);
-                        }
-                        tempList.Reverse();
-
-                        filterStock();
-                        updateChartStock();
-                    }
-
-                }
-            }
+         
         }
 
         // filters out the candlesticks based on the date time picker
-        private void filterStock()
+        private void getCandlesticksInRange()
         {
             
             List<candlestick> reversedTempList = new List<candlestick>();
@@ -197,8 +164,41 @@ namespace COP4365_P1
             }
         }
 
-        // resets the chart areas zoom on click
-        private void button_resetZoom_Click(object sender, EventArgs e)
+        private List<candlestick> loadCandlesticks(string fileName)
+        {
+            List<candlestick> resultingList = new List<candlestick>(1024);
+
+            // multiselect
+            string[] filenames = openFileDialog_stockLoader.FileNames;
+
+            using (StreamReader sr = new StreamReader(fileName))
+            {
+                string line;
+                // read the header
+                string header = sr.ReadLine();
+                // Read and display lines from the file until the end of
+                // the file is reached.
+
+                // if the header is correct
+                if (header == referenceHeaderString)
+                {
+
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        // parse for the substrings and delimit with comma
+                        candlestick candleStick = new candlestick(line);
+                        resultingList.Add(candleStick);
+                    }
+                    resultingList.Reverse();
+                    //filterStock();
+                    //updateChartStock();
+                }
+            }
+            return resultingList;
+        }
+
+            // resets the chart areas zoom on click
+            private void button_resetZoom_Click(object sender, EventArgs e)
         {
             area_OHLC.AxisX.ScaleView.ZoomReset();
             area_volume.AxisX.ScaleView.ZoomReset();
@@ -209,9 +209,15 @@ namespace COP4365_P1
         {
             area_OHLC.AxisX.ScaleView.ZoomReset();
             area_volume.AxisX.ScaleView.ZoomReset();
-            filterStock();
+            getCandlesticksInRange();
             updateChartStock();
         }
 
+        private void openFileDialog_stockLoader_FileOk(object sender, CancelEventArgs e)
+        {
+            tempList = loadCandlesticks(openFileDialog_stockLoader.FileName);
+            getCandlesticksInRange();
+            updateChartStock();
+        }
     }
 }
