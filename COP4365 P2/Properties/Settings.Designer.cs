@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace COP4365_P1.Properties
+namespace COP4365_P2.Properties
 {
 
 

@@ -6,7 +6,7 @@ using System.IO;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
-namespace COP4365_P1
+namespace COP4365_P2
 {
     // main form that the user will use to interact with candlesticks
     public partial class Form1 : Form
