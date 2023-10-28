@@ -9,7 +9,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 namespace COP4365_P2
 {
     // main form that the user will use to interact with candlesticks
-    public partial class Form1 : Form
+    public partial class Form_stockLoader : Form
     {
         private static String referenceHeaderString = "\"Ticker\",\"Period\",\"Date\",\"Open\",\"High\",\"Low\",\"Close\",\"Volume\"";
 
@@ -25,7 +25,7 @@ namespace COP4365_P2
         ChartArea area_volume;
 
         // when constructing/loading the app, populate the symbol combobox with the symbols in the folder
-        public Form1()
+        public Form_stockLoader()
         {
             InitializeComponent();
             tempList = new List<candlestick>(1024);

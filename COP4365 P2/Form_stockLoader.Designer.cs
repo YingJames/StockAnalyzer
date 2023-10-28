@@ -1,6 +1,6 @@
 ﻿namespace COP4365_P2
 {
-    partial class Form1
+    partial class Form_stockLoader
     {
         /// <summary>
         /// Required designer variable.
@@ -64,6 +64,7 @@
             // 
             this.openFileDialog_stockLoader.Filter = "All Stock files|*.csv|Daily Stocks|*-Day.csv|Weekly Stocks|*-Week.csv|Monthly Sto" +
     "cks|*-Month.csv";
+            this.openFileDialog_stockLoader.Multiselect = true;
             this.openFileDialog_stockLoader.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog_stockLoader_FileOk);
             // 
             // button_loadStock
@@ -283,7 +284,7 @@
             this.button_resetZoom.UseVisualStyleBackColor = true;
             this.button_resetZoom.Click += new System.EventHandler(this.button_resetZoom_Click);
             // 
-            // Form1
+            // Form_stockLoader
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -301,8 +302,8 @@
             this.Controls.Add(this.comboBox_stockSymbols);
             this.Controls.Add(this.dataGridView_candlesticks);
             this.Controls.Add(this.button_loadStock);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Form_stockLoader";
+            this.Text = "Stock Loader";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_candlesticks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.candlestickBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_stock)).EndInit();

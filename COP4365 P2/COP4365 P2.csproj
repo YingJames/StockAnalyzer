@@ -48,16 +48,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="candlestick.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Form_view.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Form_view.Designer.cs">
+      <DependentUpon>Form_view.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_stockLoader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_stockLoader.Designer.cs">
+      <DependentUpon>Form_stockLoader.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="smartCandlestick.cs" />
+    <EmbeddedResource Include="Form_view.resx">
+      <DependentUpon>Form_view.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_stockLoader.resx">
+      <DependentUpon>Form_stockLoader.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
