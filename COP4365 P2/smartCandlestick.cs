@@ -40,8 +40,8 @@ namespace COP4365_P1 // use combobox to select which type of candlestick to see
 
         private void computePatterns() 
         {
-            isBullish = (close - open) > 1.05 * open;
-            isBearish = (close - open) > 0.95 * open;
+            //isBullish = (close - open) > 1.05 * open;
+            //isBearish = (close - open) > 0.95 * open;
             //isNeutral = (close - open) >  * open;
             isMauru = range == bodyRange;
         }

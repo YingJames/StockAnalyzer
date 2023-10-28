@@ -17,7 +17,7 @@ namespace COP4365_P2
         private string stockDataDirectory;
         private HashSet<string> stockSymbols;
         List<candlestick> tempList;
-        Dictionary<String, Dictionary<DateTime, candlestick>> multiFileTempLists;
+        Dictionary<String, List<candlestick>> multiSymbolTempList;
 
         Series series_OHLC;
         Series series_volume;
@@ -163,7 +163,7 @@ namespace COP4365_P2
                 }
             }
         }
-
+/*
         private List<candlestick> loadCandlesticks(string fileName)
         {
             List<candlestick> resultingList = new List<candlestick>(1024);
@@ -190,11 +190,16 @@ namespace COP4365_P2
                         resultingList.Add(candleStick);
                     }
                     resultingList.Reverse();
-                    //filterStock();
-                    //updateChartStock();
                 }
             }
             return resultingList;
+        }
+
+*/        
+        private Dictionary<String, List<candlestick>> loadCandlesticks(string[] filenames)
+        {
+            Dictionary<String, List<candlestick>> candlesticks = new Dictionary<string, List<candlestick>>(100);
+            return candlesticks;
         }
 
             // resets the chart areas zoom on click
@@ -215,7 +220,8 @@ namespace COP4365_P2
 
         private void openFileDialog_stockLoader_FileOk(object sender, CancelEventArgs e)
         {
-            tempList = loadCandlesticks(openFileDialog_stockLoader.FileName);
+            //tempList = loadCandlesticks(openFileDialog_stockLoader.FileName);
+            multiSymbolTempList = loadCandlesticks(openFileDialog_stockLoader.FileNames);
             getCandlesticksInRange();
             updateChartStock();
         }
