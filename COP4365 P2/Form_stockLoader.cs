@@ -17,7 +17,7 @@ namespace COP4365_P2
         private string stockDataDirectory;
         private HashSet<string> stockSymbols;
         List<candlestick> tempList;
-        Dictionary<String, List<candlestick>> multiSymbolTempList;
+        Dictionary<String, List<candlestick>> multiSymbolTempList = new Dictionary<string, List<candlestick>>(100);
 
         Series series_OHLC;
         Series series_volume;
@@ -29,6 +29,7 @@ namespace COP4365_P2
         {
             InitializeComponent();
             tempList = new List<candlestick>(1024);
+            //Dictionary<String, List<candlestick>> multiSymbolTempList = new Dictionary<string, List<candlestick>>(100);
             stockSymbols = new HashSet<string>(100);
 
             // initialize candlestick chart series
@@ -105,7 +106,7 @@ namespace COP4365_P2
         }
 
         // filters out the candlesticks based on the date time picker
-        private void getCandlesticksInRange()
+        private List<candlestick> getCandlesticksInRange(List<candlestick> tempList)
         {
             
             List<candlestick> reversedTempList = new List<candlestick>();
@@ -121,7 +122,7 @@ namespace COP4365_P2
             }
 
             reversedTempList.Reverse();
-
+/*
             // create the list of candlesticks we will bind to
             candlesticks = new BindingList<candlestick>();
             // connect the dataGridView to the list of candlesticks
@@ -129,7 +130,8 @@ namespace COP4365_P2
             foreach (candlestick candlestick in reversedTempList)
             {
                 candlesticks.Add(candlestick);
-            }
+            }*/
+            return reversedTempList;
         }
 
         // populates and updates the chart based on current candlesticks
@@ -163,7 +165,7 @@ namespace COP4365_P2
                 }
             }
         }
-/*
+
         private List<candlestick> loadCandlesticks(string fileName)
         {
             List<candlestick> resultingList = new List<candlestick>(1024);
@@ -195,15 +197,47 @@ namespace COP4365_P2
             return resultingList;
         }
 
-*/        
-        private Dictionary<String, List<candlestick>> loadCandlesticks(string[] filenames)
-        {
-            Dictionary<String, List<candlestick>> candlesticks = new Dictionary<string, List<candlestick>>(100);
-            return candlesticks;
-        }
+        /*
+                private Dictionary<String, List<candlestick>> loadCandlesticks(string[] filePaths)
+                {
+                    Dictionary<String, List<candlestick>> allCandlesticks = new Dictionary<string, List<candlestick>>(100);
+                    List<candlestick> symbolOfCandlesticks = new List<candlestick>(1024);
+                    foreach (string filePath in filePaths)
+                    {
+                        string filename = Path.GetFileName(filePath);
+                        // only get symbol before '-' and prevent duplicates
+                        string[] splitFileName = filename.Split('-');
+                        string symbol = splitFileName[0];
+                        //stockSymbols.Add(symbol);
 
-            // resets the chart areas zoom on click
-            private void button_resetZoom_Click(object sender, EventArgs e)
+                        using (StreamReader sr = new StreamReader(filePath))
+                        {
+                            string line;
+                            // read the header
+                            string header = sr.ReadLine();
+                            // Read and display lines from the file until the end of
+                            // the file is reached.
+
+                            // if the header is correct
+                            if (header == referenceHeaderString)
+                            {
+
+                                while ((line = sr.ReadLine()) != null)
+                                {
+                                    // parse for the substrings and delimit with comma
+                                    candlestick candleStick = new candlestick(line);
+                                    symbolOfCandlesticks.Add(candleStick);
+                                }
+                                symbolOfCandlesticks.Reverse();
+                            }
+                        }
+                        allCandlesticks.Add(symbol, symbolOfCandlesticks);
+                    }
+                    return allCandlesticks;
+                }*/
+
+        // resets the chart areas zoom on click
+        private void button_resetZoom_Click(object sender, EventArgs e)
         {
             area_OHLC.AxisX.ScaleView.ZoomReset();
             area_volume.AxisX.ScaleView.ZoomReset();
@@ -214,15 +248,26 @@ namespace COP4365_P2
         {
             area_OHLC.AxisX.ScaleView.ZoomReset();
             area_volume.AxisX.ScaleView.ZoomReset();
-            getCandlesticksInRange();
+            tempList = getCandlesticksInRange(tempList);
             updateChartStock();
         }
 
         private void openFileDialog_stockLoader_FileOk(object sender, CancelEventArgs e)
         {
-            //tempList = loadCandlesticks(openFileDialog_stockLoader.FileName);
-            multiSymbolTempList = loadCandlesticks(openFileDialog_stockLoader.FileNames);
-            getCandlesticksInRange();
+                //multiSymbolTempList = loadCandlesticks(openFileDialog_stockLoader.FileNames);
+            foreach (string filePath in openFileDialog_stockLoader.FileNames)
+            {
+                tempList = loadCandlesticks(filePath);
+                tempList = getCandlesticksInRange(tempList);
+
+                string filename = Path.GetFileName(filePath);
+                // only get symbol before '-' and prevent duplicates
+                string[] splitFileName = filename.Split('.');
+                filename = splitFileName[0];
+
+                multiSymbolTempList.Add(filename, tempList);
+            }
+
             updateChartStock();
         }
     }
