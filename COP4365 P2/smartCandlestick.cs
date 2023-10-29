@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms.DataVisualization.Charting;
 
-namespace COP4365_P1 // use combobox to select which type of candlestick to see
+namespace COP4365_P2 // use combobox to select which type of candlestick to see
 {                    // then annotate and point arrwo on chart to show which candlestick
                     // Dictionary<TypeCandlestick, list of indices or candlesticks from tempList for that type of candlestick >
     internal class smartCandlestick : candlestick

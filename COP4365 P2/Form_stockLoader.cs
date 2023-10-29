@@ -249,7 +249,7 @@ namespace COP4365_P2
             area_OHLC.AxisX.ScaleView.ZoomReset();
             area_volume.AxisX.ScaleView.ZoomReset();
             tempList = getCandlesticksInRange(tempList);
-            updateChartStock();
+            //updateChartStock();
         }
 
         private void openFileDialog_stockLoader_FileOk(object sender, CancelEventArgs e)
@@ -267,8 +267,15 @@ namespace COP4365_P2
 
                 multiSymbolTempList.Add(filename, tempList);
             }
+   
+            //updateChartStock();
 
-            updateChartStock();
+            foreach (string stockSymbol in multiSymbolTempList.Keys)
+            {
+                Form viewStockForm = new Form_viewStock(stockSymbol, multiSymbolTempList[stockSymbol]);
+                //viewStockForm.Show(this);
+                viewStockForm.Show();
+            }
         }
     }
 }
