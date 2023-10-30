@@ -8,7 +8,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace COP4365_P2
 {
-    // main form that the user will use to interact with candlesticks
+    // form that will load the stocks from multiple files in to individual forms
     public partial class Form_stockLoader : Form
     {
         private static String referenceHeaderString = "\"Ticker\",\"Period\",\"Date\",\"Open\",\"High\",\"Low\",\"Close\",\"Volume\"";
