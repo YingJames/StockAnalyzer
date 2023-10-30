@@ -197,44 +197,6 @@ namespace COP4365_P2
             return resultingList;
         }
 
-        /*
-                private Dictionary<String, List<candlestick>> loadCandlesticks(string[] filePaths)
-                {
-                    Dictionary<String, List<candlestick>> allCandlesticks = new Dictionary<string, List<candlestick>>(100);
-                    List<candlestick> symbolOfCandlesticks = new List<candlestick>(1024);
-                    foreach (string filePath in filePaths)
-                    {
-                        string filename = Path.GetFileName(filePath);
-                        // only get symbol before '-' and prevent duplicates
-                        string[] splitFileName = filename.Split('-');
-                        string symbol = splitFileName[0];
-                        //stockSymbols.Add(symbol);
-
-                        using (StreamReader sr = new StreamReader(filePath))
-                        {
-                            string line;
-                            // read the header
-                            string header = sr.ReadLine();
-                            // Read and display lines from the file until the end of
-                            // the file is reached.
-
-                            // if the header is correct
-                            if (header == referenceHeaderString)
-                            {
-
-                                while ((line = sr.ReadLine()) != null)
-                                {
-                                    // parse for the substrings and delimit with comma
-                                    candlestick candleStick = new candlestick(line);
-                                    symbolOfCandlesticks.Add(candleStick);
-                                }
-                                symbolOfCandlesticks.Reverse();
-                            }
-                        }
-                        allCandlesticks.Add(symbol, symbolOfCandlesticks);
-                    }
-                    return allCandlesticks;
-                }*/
 
         // resets the chart areas zoom on click
         private void button_resetZoom_Click(object sender, EventArgs e)
