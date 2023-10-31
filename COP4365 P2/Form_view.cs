@@ -16,26 +16,26 @@ namespace COP4365_P2
     public partial class Form_viewStock : Form
     {
         string stockSymbol {  get; set; }
-        private BindingList<candlestick> candlesticks;
-        private List<candlestick> allCandlesticks {  get; set; }
+        private BindingList<smartCandlestick> candlesticks;
+        private List<smartCandlestick> allCandlesticks {  get; set; }
         Series series_OHLC;
         Series series_volume;
         ChartArea area_OHLC;
         ChartArea area_volume;
 
         // construct lists and chart components
-        public Form_viewStock(string symbol, List<candlestick> listOfCandlesticks)
+        public Form_viewStock(string symbol, List<smartCandlestick> listOfCandlesticks)
         {
             InitializeComponent();
             stockSymbol = symbol;
-            allCandlesticks = new List<candlestick>(1024);
+            allCandlesticks = new List<smartCandlestick>(1024);
 
             this.Text = stockSymbol;
 
 
             // initialize candlestick chart series
             allCandlesticks = listOfCandlesticks;
-            candlesticks = new BindingList<candlestick>(allCandlesticks);
+            candlesticks = new BindingList<smartCandlestick>(allCandlesticks);
             chart_stock.DataSource = candlesticks;
             series_OHLC = chart_stock.Series["series_OHLC"];
             series_volume = chart_stock.Series["series_volume"];
@@ -67,12 +67,12 @@ namespace COP4365_P2
         }
 
         // filters out the candlesticks based on the date time picker
-        private List<candlestick> getCandlesticksInRange(List<candlestick> tempList)
+        private List<smartCandlestick> getCandlesticksInRange(List<smartCandlestick> tempList)
         {
 
-            List<candlestick> reversedTempList = new List<candlestick>();
+            List<smartCandlestick> reversedTempList = new List<smartCandlestick>();
             tempList.Reverse();
-            foreach (candlestick candlestick in tempList)
+            foreach (smartCandlestick candlestick in tempList)
             {
                 if (candlestick.date > dateTimePicker_endDate.Value)
                     break;
@@ -91,8 +91,8 @@ namespace COP4365_P2
         // updates the candlesticks range when the 
         private void button_updateStockDataGridView_Click(object sender, EventArgs e)
         {
-            List<candlestick> filteredCandlesticks = getCandlesticksInRange(allCandlesticks);
-            candlesticks = new BindingList<candlestick>(filteredCandlesticks);
+            List<smartCandlestick> filteredCandlesticks = getCandlesticksInRange(allCandlesticks);
+            candlesticks = new BindingList<smartCandlestick>(filteredCandlesticks);
 
             chart_stock.DataSource = candlesticks;
             chart_stock.DataBind();

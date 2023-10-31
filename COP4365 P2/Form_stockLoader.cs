@@ -13,11 +13,11 @@ namespace COP4365_P2
     {
         private static String referenceHeaderString = "\"Ticker\",\"Period\",\"Date\",\"Open\",\"High\",\"Low\",\"Close\",\"Volume\"";
 
-        private BindingList<candlestick> candlesticks { get; set; }
+        private BindingList<smartCandlestick> candlesticks { get; set; }
         private string stockDataDirectory;
         private HashSet<string> stockSymbols;
-        List<candlestick> tempList;
-        Dictionary<String, List<candlestick>> multiSymbolTempList = new Dictionary<string, List<candlestick>>(100);
+        List<smartCandlestick> tempList;
+        Dictionary<String, List<smartCandlestick>> multiSymbolTempList = new Dictionary<string, List<smartCandlestick>>(100);
 
         Series series_OHLC;
         Series series_volume;
@@ -28,10 +28,10 @@ namespace COP4365_P2
         public Form_stockLoader()
         {
             InitializeComponent();
-            tempList = new List<candlestick>(1024);
-            //Dictionary<String, List<candlestick>> multiSymbolTempList = new Dictionary<string, List<candlestick>>(100);
+            tempList = new List<smartCandlestick>(1024);
+            //Dictionary<String, List<smartCandlestick>> multiSymbolTempList = new Dictionary<string, List<smartCandlestick>>(100);
             stockSymbols = new HashSet<string>(100);
-
+/*
             // initialize candlestick chart series
             chart_stock.DataSource = candlesticks;
             series_OHLC = chart_stock.Series["series_OHLC"];
@@ -45,7 +45,6 @@ namespace COP4365_P2
             series_volume.XValueType = ChartValueType.DateTime;
             series_volume.XValueMember = "date";
             series_volume.YValueMembers = "volume";
-
             // newest candlestick objects on left first
             area_OHLC.AxisX.IsReversed = true;
             area_volume.AxisX.IsReversed = true;
@@ -62,7 +61,7 @@ namespace COP4365_P2
             area_volume.AxisX.Title = "Date";
             area_volume.AxisY2.Title = "Volume";
 
-            // fetch the directory of Stock Data
+*/            // fetch the directory of Stock Data
             string executableDirectory = Directory.GetCurrentDirectory();
             string binDirectory = Directory.GetParent(executableDirectory).FullName;
             string projectDirectory = Directory.GetParent(binDirectory).FullName;
@@ -106,11 +105,11 @@ namespace COP4365_P2
         }
 
         // filters out the candlesticks based on the date time picker
-        private List<candlestick> getCandlesticksInRange(List<candlestick> tempList)
+        private List<smartCandlestick> getCandlesticksInRange(List<smartCandlestick> tempList)
         {
             
-            List<candlestick> reversedTempList = new List<candlestick>();
-            foreach(candlestick candlestick in tempList)
+            List<smartCandlestick> reversedTempList = new List<smartCandlestick>();
+            foreach(smartCandlestick candlestick in tempList)
             {
                 if (candlestick.date > dateTimePicker_endDate.Value)
                     break;
@@ -135,7 +134,7 @@ namespace COP4365_P2
         }
 
         // populates and updates the chart based on current candlesticks
-        private void updateChartStock()
+/*        private void updateChartStock()
         {
             chart_stock.Titles.Clear();
             chart_stock.Titles.Add(Path.GetFileNameWithoutExtension(openFileDialog_stockLoader.FileName));
@@ -144,7 +143,7 @@ namespace COP4365_P2
             chart_stock.DataBind();
         }
 
-
+*/
         // changes the color of the candlesticks based on open close values before chart paint
         private void chart_stock_PrePaint(object sender, ChartPaintEventArgs e)
         {
@@ -166,9 +165,9 @@ namespace COP4365_P2
             }
         }
 
-        private List<candlestick> loadCandlesticks(string fileName)
+        private List<smartCandlestick> loadCandlesticks(string fileName)
         {
-            List<candlestick> resultingList = new List<candlestick>(1024);
+            List<smartCandlestick> resultingList = new List<smartCandlestick>(1024);
 
             // multiselect
             string[] filenames = openFileDialog_stockLoader.FileNames;
@@ -188,7 +187,7 @@ namespace COP4365_P2
                     while ((line = sr.ReadLine()) != null)
                     {
                         // parse for the substrings and delimit with comma
-                        candlestick candleStick = new candlestick(line);
+                        smartCandlestick candleStick = new smartCandlestick(line);
                         resultingList.Add(candleStick);
                     }
                     resultingList.Reverse();
@@ -201,22 +200,22 @@ namespace COP4365_P2
         // resets the chart areas zoom on click
         private void button_resetZoom_Click(object sender, EventArgs e)
         {
-            area_OHLC.AxisX.ScaleView.ZoomReset();
+/*            area_OHLC.AxisX.ScaleView.ZoomReset();
             area_volume.AxisX.ScaleView.ZoomReset();
-        }
+*/        }
 
         // helper function to trigger filterStock when the Update Button is clicked
         private void button_updateStockDataGridView_Click(object sender, EventArgs e)
         {
-            area_OHLC.AxisX.ScaleView.ZoomReset();
+/*            area_OHLC.AxisX.ScaleView.ZoomReset();
             area_volume.AxisX.ScaleView.ZoomReset();
-            tempList = getCandlesticksInRange(tempList);
+*/            tempList = getCandlesticksInRange(tempList);
             //updateChartStock();
         }
 
         private void openFileDialog_stockLoader_FileOk(object sender, CancelEventArgs e)
         {
-                //multiSymbolTempList = loadCandlesticks(openFileDialog_stockLoader.FileNames);
+            //multiSymbolTempList = loadCandlesticks(openFileDialog_stockLoader.FileNames);
             foreach (string filePath in openFileDialog_stockLoader.FileNames)
             {
                 tempList = loadCandlesticks(filePath);

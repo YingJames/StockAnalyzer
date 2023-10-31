@@ -9,7 +9,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 namespace COP4365_P2 // use combobox to select which type of candlestick to see
 {                    // then annotate and point arrwo on chart to show which candlestick
                     // Dictionary<TypeCandlestick, list of indices or candlesticks from tempList for that type of candlestick >
-    internal class smartCandlestick : candlestick
+    public class smartCandlestick : candlestick
     {
         public static double dojiLeeway = 0.05;
         public Decimal range { get; set; } // high - low
