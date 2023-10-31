@@ -34,35 +34,25 @@ namespace COP4365_P2 // use combobox to select which type of candlestick to see
         public smartCandlestick() : base() { }
         public smartCandlestick(String rowOfData) : base(rowOfData)
         {
+            initHigherProperties();
+            computePatterns();
+        }
+
+        private void initHigherProperties() 
+        {
+
             range = Math.Abs(high - low);
             bodyRange = Math.Abs(open - close);
 
-            if (open <= close)
-            {
-                isBullish = true;
-                topPrice = close; 
-                bottomPrice = open;
-            } 
-            else
-            {
-                isBearish = true;
-                topPrice = open;
-                bottomPrice = close;
-            }
-
-            //initHigherProperties();
-            
         }
-
-        private void initHigherProperties() { }
 
         private bool leeway() { return false; }
 
         private void computePatterns() 
         {
-            //isBullish = (close - open) > 1.05 * open;
-            //isBearish = (close - open) > 0.95 * open;
-            //isNeutral = (close - open) >  * open;
+            isBullish = close > ((decimal)1.05 * open);
+            isBearish = close < ((decimal)0.95 * open);
+            isNeutral = bodyRange <= ((decimal)0.05 * open);
         }
        
     }
