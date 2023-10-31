@@ -28,12 +28,10 @@ namespace COP4365_P2
         {
             InitializeComponent();
             stockSymbol = symbol;
-            allCandlesticks = new List<smartCandlestick>(1024);
-
             this.Text = stockSymbol;
 
-
             // initialize candlestick chart series
+            allCandlesticks = new List<smartCandlestick>(1024);
             allCandlesticks = listOfCandlesticks;
             candlesticks = new BindingList<smartCandlestick>(allCandlesticks);
             chart_stock.DataSource = candlesticks;
@@ -48,16 +46,6 @@ namespace COP4365_P2
             series_volume.XValueType = ChartValueType.DateTime;
             series_volume.XValueMember = "date";
             series_volume.YValueMembers = "volume";
-
-            // newest candlestick objects on left first
-            area_OHLC.AxisX.IsReversed = true;
-            area_volume.AxisX.IsReversed = true;
-
-            // keep price y-axis on the left
-            area_OHLC.AxisY.Enabled = AxisEnabled.False;
-            area_OHLC.AxisY2.Enabled = AxisEnabled.True;
-            area_volume.AxisY.Enabled = AxisEnabled.False;
-            area_volume.AxisY2.Enabled = AxisEnabled.True;
 
             // add axis titles
             area_OHLC.AxisX.Title = "Date";
