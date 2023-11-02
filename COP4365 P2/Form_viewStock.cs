@@ -54,9 +54,11 @@ namespace COP4365_P2
             area_volume.AxisY2.Title = "Volume";
 
             // combobox for showing patterns
-            string[] patterns = new string[] {"None", "isBullish", "isBearish", "isNeutral"};
+            string[] patterns = new string[] {"None", "Bullish", "Bearish", "Neutral"};
             comboBox_patterns.Items.AddRange(patterns);
             comboBox_patterns.SelectedIndex = 0;
+
+            updateStock();
         }
 
         // filters out the candlesticks based on the date time picker
@@ -98,11 +100,34 @@ namespace COP4365_P2
             arrow.AnchorDataPoint = candlestickPoint;
             return arrow;
         }
+        
+        private void updateStock()
+        {
+            List<smartCandlestick> filteredCandlesticks = getCandlesticksInRange(allCandlesticks);
+            candlesticks = new BindingList<smartCandlestick>(filteredCandlesticks);
+
+            chart_stock.DataSource = candlesticks;
+            chart_stock.DataBind();
+            chart_stock.Annotations.Clear();
+
+            string selectedPattern = "is" + comboBox_patterns.SelectedItem.ToString();
+            int index = 0;
+            // TODO: conditionally apply an annotation based on the pattern selected
+            foreach (DataPoint candlestickPoint in series_OHLC.Points)
+            {
+                //if (selectedPattern == "")
+                ArrowAnnotation arrow = makeArrow(candlestickPoint);
+                chart_stock.Annotations.Add(arrow);
+                index++;
+            }
+            chart_stock.Invalidate();
+        }
 
         // updates the candlesticks range when the 
         private void button_updateStockDataGridView_Click(object sender, EventArgs e)
         {
-            List<smartCandlestick> filteredCandlesticks = getCandlesticksInRange(allCandlesticks);
+            updateStock();
+/*            List<smartCandlestick> filteredCandlesticks = getCandlesticksInRange(allCandlesticks);
             candlesticks = new BindingList<smartCandlestick>(filteredCandlesticks);
 
             chart_stock.DataSource = candlesticks;
@@ -115,6 +140,7 @@ namespace COP4365_P2
                 chart_stock.Annotations.Add(arrow);
             }
             chart_stock.Invalidate();
+*/
 
         }
     }
