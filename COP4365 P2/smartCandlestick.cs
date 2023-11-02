@@ -17,7 +17,7 @@ namespace COP4365_P2 // use combobox to select which type of candlestick to see
         public Decimal topPrice { get; set; }
         public Decimal bottomPrice { get; set; }
         public Decimal topTail { get; set; }
-        public Decimal lowerTail { get; set; }
+        public Decimal bottomTail { get; set; }
         public bool isBullish { get; set; } = false; // make all of these is'x' as properties
         public bool isBearish { get; set; } = false; // testBearish()
         public bool isNeutral { get; set; } = false;
@@ -40,10 +40,12 @@ namespace COP4365_P2 // use combobox to select which type of candlestick to see
 
         private void initHigherProperties() 
         {
-
             range = Math.Abs(high - low);
             bodyRange = Math.Abs(open - close);
-
+            topPrice = Math.Max(open, close);
+            bottomPrice = Math.Min(open, close);
+            topTail = Math.Abs(high - topPrice);
+            bottomTail = Math.Abs(bottomPrice - low);
         }
 
         private bool leeway() { return false; }
@@ -53,6 +55,7 @@ namespace COP4365_P2 // use combobox to select which type of candlestick to see
             isBullish = close > ((decimal)1.05 * open);
             isBearish = close < ((decimal)0.95 * open);
             isNeutral = bodyRange <= ((decimal)0.05 * open);
+            isMarubozu = (topPrice == high) && (bottomPrice == low);
         }
        
     }

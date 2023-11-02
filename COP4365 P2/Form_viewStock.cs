@@ -54,7 +54,9 @@ namespace COP4365_P2
             area_volume.AxisY2.Title = "Volume";
 
             // combobox for showing patterns
-            string[] patterns = new string[] { "None", "Bullish", "Bearish", "Neutral" };
+            string[] patterns = new string[] { "None", "Bullish", "Bearish",
+                "Neutral", "Marubozu", "Doji",
+                "DragonFlyDoji", "GravestoneDoji", "Hammer", "InvertedHammer" };
             comboBox_patterns.Items.AddRange(patterns);
             comboBox_patterns.SelectedIndex = 0;
 
@@ -118,6 +120,13 @@ namespace COP4365_P2
                 { "isBullish", candlestick => candlestick.isBullish },
                 { "isBearish", candlestick => candlestick.isBearish },
                 { "isNeutral", candlestick => candlestick.isNeutral },
+                { "isMarubozu", candlestick => candlestick.isMarubozu },
+                { "isDoji", candlestick => candlestick.isDoji },
+                { "isDragonFlyDoji", candlestick => candlestick.isDragonFlyDoji },
+                { "isGravestoneDoji", candlestick => candlestick.isGravestoneDoji },
+                { "isHammer", candlestick => candlestick.isHammer },
+                { "isInvertedHammer", candlestick => candlestick.isInvertedHammer },
+
             };
 
             // checks the map to find the appropriate function based on the selected item in the combobox
