@@ -56,7 +56,7 @@ namespace COP4365_P2
             // combobox for showing patterns
             string[] patterns = new string[] {"None", "isBullish", "isBearish", "isNeutral"};
             comboBox_patterns.Items.AddRange(patterns);
-
+            comboBox_patterns.SelectedIndex = 0;
         }
 
         // filters out the candlesticks based on the date time picker
@@ -84,24 +84,18 @@ namespace COP4365_P2
         private ArrowAnnotation makeArrow(DataPoint candlestickPoint)
         {
             ArrowAnnotation arrow = new ArrowAnnotation();
-            arrow.ArrowSize = 10;
+            arrow.ArrowSize = 4;
             arrow.Height = 10;
-            arrow.Width = 10;
+            arrow.Width = 0;
             arrow.BackColor = Color.Red;
             arrow.ForeColor = Color.Red;
-            arrow.AnchorOffsetY = 10;
+            arrow.AnchorOffsetY = 5;
             arrow.ArrowStyle = ArrowStyle.Simple;
 
-                float xPixelPosition = (float)area_OHLC.AxisX.ValueToPixelPosition(candlestickPoint.XValue);
+/*                float xPixelPosition = (float)area_OHLC.AxisX.ValueToPixelPosition(candlestickPoint.XValue);
                 float yPixelPosition = (float)area_OHLC.AxisY.ValueToPixelPosition(candlestickPoint.YValues[0]);
-
-            arrow.AnchorDataPoint = candlestickPoint;
-/*            arrow.X = 50;
-            arrow.Y = 50;
-*//*            arrow.AnchorDataPoint = candlestickPoint;
-            arrow.X = xPixelPosition;
-            arrow.Y = yPixelPosition;
 */
+            arrow.AnchorDataPoint = candlestickPoint;
             return arrow;
         }
 
@@ -114,26 +108,14 @@ namespace COP4365_P2
             chart_stock.DataSource = candlesticks;
             chart_stock.DataBind();
 
+            chart_stock.Annotations.Clear();
             foreach (DataPoint candlestickPoint in series_OHLC.Points)
             {
                 ArrowAnnotation arrow = makeArrow(candlestickPoint);
                 chart_stock.Annotations.Add(arrow);
             }
+            chart_stock.Invalidate();
 
-/*            foreach (DataPoint candlestickPoint in series_OHLC.Points)
-            {
-                //TODO: must make a new arrow for each candlestick bruhhhh
-                ArrowAnnotation arrowPoint = new ArrowAnnotation();
-                float xPixelPosition = (float)area_OHLC.AxisX.ValueToPixelPosition(candlestickPoint.XValue);
-                float yPixelPosition = (float)area_OHLC.AxisY.ValueToPixelPosition(candlestickPoint.YValues[0]);
-
-                //arrow.AnchorDataPoint = candlestickPoint;
-                DataPoint dataPoint = new DataPoint(xPixelPosition, yPixelPosition);
-                chart_stock.Annotations.Add(arrowPoint);
-                index++;
-                break;
-            }
-*/            
         }
     }
 }
