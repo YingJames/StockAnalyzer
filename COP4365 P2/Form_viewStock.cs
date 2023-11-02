@@ -15,9 +15,9 @@ namespace COP4365_P2
     // form class for viewing and interacting with stocks in a chart
     public partial class Form_viewStock : Form
     {
-        string stockSymbol {  get; set; }
+        string stockSymbol { get; set; }
         private BindingList<smartCandlestick> candlesticks;
-        private List<smartCandlestick> allCandlesticks {  get; set; }
+        private List<smartCandlestick> allCandlesticks { get; set; }
         Series series_OHLC;
         Series series_volume;
         ChartArea area_OHLC;
@@ -54,7 +54,7 @@ namespace COP4365_P2
             area_volume.AxisY2.Title = "Volume";
 
             // combobox for showing patterns
-            string[] patterns = new string[] {"None", "Bullish", "Bearish", "Neutral"};
+            string[] patterns = new string[] { "None", "Bullish", "Bearish", "Neutral" };
             comboBox_patterns.Items.AddRange(patterns);
             comboBox_patterns.SelectedIndex = 0;
 
@@ -94,13 +94,13 @@ namespace COP4365_P2
             arrow.AnchorOffsetY = 5;
             arrow.ArrowStyle = ArrowStyle.Simple;
 
-/*                float xPixelPosition = (float)area_OHLC.AxisX.ValueToPixelPosition(candlestickPoint.XValue);
-                float yPixelPosition = (float)area_OHLC.AxisY.ValueToPixelPosition(candlestickPoint.YValues[0]);
-*/
+            /*                float xPixelPosition = (float)area_OHLC.AxisX.ValueToPixelPosition(candlestickPoint.XValue);
+                            float yPixelPosition = (float)area_OHLC.AxisY.ValueToPixelPosition(candlestickPoint.YValues[0]);
+            */
             arrow.AnchorDataPoint = candlestickPoint;
             return arrow;
         }
-        
+
         private void updateStock()
         {
             List<smartCandlestick> filteredCandlesticks = getCandlesticksInRange(allCandlesticks);
@@ -111,14 +111,29 @@ namespace COP4365_P2
             chart_stock.Annotations.Clear();
 
             string selectedPattern = "is" + comboBox_patterns.SelectedItem.ToString();
-            int index = 0;
-            // TODO: conditionally apply an annotation based on the pattern selected
-            foreach (DataPoint candlestickPoint in series_OHLC.Points)
+
+            // Create a dictionary that maps the selectedPattern to the specified function
+            Dictionary<string, Func<smartCandlestick, bool>> patternProperties = new Dictionary<string, Func<smartCandlestick, bool>>
             {
-                //if (selectedPattern == "")
-                ArrowAnnotation arrow = makeArrow(candlestickPoint);
-                chart_stock.Annotations.Add(arrow);
-                index++;
+                { "isBullish", candlestick => candlestick.isBullish },
+                { "isBearish", candlestick => candlestick.isBearish },
+                { "isNeutral", candlestick => candlestick.isNeutral },
+            };
+
+            // checks the map to find the appropriate function based on the selected item in the combobox
+            if (patternProperties.TryGetValue(selectedPattern, out Func<smartCandlestick, bool> property))
+            {
+                int index = 0;
+                foreach (DataPoint candlestickPoint in series_OHLC.Points)
+                {
+                    // takes smartCandlestick and returns a bool
+                    if (property(filteredCandlesticks[index]))
+                    {
+                        ArrowAnnotation arrow = makeArrow(candlestickPoint);
+                        chart_stock.Annotations.Add(arrow);
+                    }
+                    index++;
+                }
             }
             chart_stock.Invalidate();
         }
@@ -127,20 +142,20 @@ namespace COP4365_P2
         private void button_updateStockDataGridView_Click(object sender, EventArgs e)
         {
             updateStock();
-/*            List<smartCandlestick> filteredCandlesticks = getCandlesticksInRange(allCandlesticks);
-            candlesticks = new BindingList<smartCandlestick>(filteredCandlesticks);
+            /*            List<smartCandlestick> filteredCandlesticks = getCandlesticksInRange(allCandlesticks);
+                        candlesticks = new BindingList<smartCandlestick>(filteredCandlesticks);
 
-            chart_stock.DataSource = candlesticks;
-            chart_stock.DataBind();
+                        chart_stock.DataSource = candlesticks;
+                        chart_stock.DataBind();
 
-            chart_stock.Annotations.Clear();
-            foreach (DataPoint candlestickPoint in series_OHLC.Points)
-            {
-                ArrowAnnotation arrow = makeArrow(candlestickPoint);
-                chart_stock.Annotations.Add(arrow);
-            }
-            chart_stock.Invalidate();
-*/
+                        chart_stock.Annotations.Clear();
+                        foreach (DataPoint candlestickPoint in series_OHLC.Points)
+                        {
+                            ArrowAnnotation arrow = makeArrow(candlestickPoint);
+                            chart_stock.Annotations.Add(arrow);
+                        }
+                        chart_stock.Invalidate();
+            */
 
         }
     }
