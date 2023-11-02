@@ -196,6 +196,15 @@ namespace COP4365_P2
             return resultingList;
         }
 
+        private bool shouldAnnotateCandlestick(string pattern, smartCandlestick candlestick)
+        {
+            if (pattern == "None")
+                return false;
+            else if (pattern == "isBullish")
+            { }
+            return false;
+        }
+
 
         // resets the chart areas zoom on click
         private void button_resetZoom_Click(object sender, EventArgs e)

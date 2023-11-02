@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.LineAnnotation lineAnnotation1 = new System.Windows.Forms.DataVisualization.Charting.LineAnnotation();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
@@ -41,6 +42,8 @@
             this.button_updateStockDataGridView = new System.Windows.Forms.Button();
             this.chart_stock = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.candlestickBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.comboBox_patterns = new System.Windows.Forms.ComboBox();
+            this.label_patterns = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chart_stock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.candlestickBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -97,6 +100,9 @@
             // 
             // chart_stock
             // 
+            lineAnnotation1.EndCap = System.Windows.Forms.DataVisualization.Charting.LineAnchorCapStyle.Arrow;
+            lineAnnotation1.Name = "testArrow";
+            this.chart_stock.Annotations.Add(lineAnnotation1);
             chartArea1.AlignWithChartArea = "area_volume";
             chartArea1.CursorX.IsUserEnabled = true;
             chartArea1.CursorX.IsUserSelectionEnabled = true;
@@ -128,11 +134,30 @@
             // 
             this.candlestickBindingSource.DataSource = typeof(COP4365_P2.candlestick);
             // 
+            // comboBox_patterns
+            // 
+            this.comboBox_patterns.FormattingEnabled = true;
+            this.comboBox_patterns.Location = new System.Drawing.Point(600, 348);
+            this.comboBox_patterns.Name = "comboBox_patterns";
+            this.comboBox_patterns.Size = new System.Drawing.Size(121, 21);
+            this.comboBox_patterns.TabIndex = 21;
+            // 
+            // label_patterns
+            // 
+            this.label_patterns.AutoSize = true;
+            this.label_patterns.Location = new System.Drawing.Point(600, 332);
+            this.label_patterns.Name = "label_patterns";
+            this.label_patterns.Size = new System.Drawing.Size(72, 13);
+            this.label_patterns.TabIndex = 22;
+            this.label_patterns.Text = "View Patterns";
+            // 
             // Form_viewStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(807, 471);
+            this.Controls.Add(this.label_patterns);
+            this.Controls.Add(this.comboBox_patterns);
             this.Controls.Add(this.chart_stock);
             this.Controls.Add(this.button_updateStockDataGridView);
             this.Controls.Add(this.dateTimePicker_endDate);
@@ -157,5 +182,7 @@
         private System.Windows.Forms.Button button_updateStockDataGridView;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart_stock;
         private System.Windows.Forms.BindingSource candlestickBindingSource;
+        private System.Windows.Forms.ComboBox comboBox_patterns;
+        private System.Windows.Forms.Label label_patterns;
     }
 }
