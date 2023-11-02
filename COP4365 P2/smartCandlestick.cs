@@ -41,21 +41,28 @@ namespace COP4365_P2 // use combobox to select which type of candlestick to see
         private void initHigherProperties() 
         {
             range = Math.Abs(high - low);
-            bodyRange = Math.Abs(open - close);
             topPrice = Math.Max(open, close);
             bottomPrice = Math.Min(open, close);
+            bodyRange = Math.Abs(topPrice - bottomPrice);
             topTail = Math.Abs(high - topPrice);
             bottomTail = Math.Abs(bottomPrice - low);
         }
 
         private bool leeway() { return false; }
+        private static double CalculatePercentageDifference(double value1, double value2)
+        {
+            double difference = Math.Abs(value1 - value2);
+            double average = (value1 + value2) / 2;
+            return (difference / average) * 100;
+        }
 
         private void computePatterns() 
         {
             isBullish = close > ((decimal)1.05 * open);
             isBearish = close < ((decimal)0.95 * open);
             isNeutral = bodyRange <= ((decimal)0.05 * open);
-            isMarubozu = (topPrice == high) && (bottomPrice == low);
+            isMarubozu = bodyRange == range;
+            isDoji = CalculatePercentageDifference((double)open, (double)close) < 0.05;
         }
        
     }
