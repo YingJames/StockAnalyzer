@@ -60,7 +60,7 @@ namespace COP4365_P2
             comboBox_patterns.Items.AddRange(patterns);
             comboBox_patterns.SelectedIndex = 0;
 
-            updateStock();
+            updateStockChart();
         }
 
         // filters out the candlesticks based on the date time picker
@@ -85,6 +85,7 @@ namespace COP4365_P2
             return reversedTempList;
         }
 
+        // creates a new arrow annotation object anchored to a specific candlestick
         private ArrowAnnotation makeArrow(DataPoint candlestickPoint)
         {
             ArrowAnnotation arrow = new ArrowAnnotation();
@@ -103,7 +104,8 @@ namespace COP4365_P2
             return arrow;
         }
 
-        private void updateStock()
+        // filters the candlesticks based on date range and creates annotations on the chart
+        private void updateStockChart()
         {
             List<smartCandlestick> filteredCandlesticks = getCandlesticksInRange(allCandlesticks);
             candlesticks = new BindingList<smartCandlestick>(filteredCandlesticks);
@@ -147,10 +149,10 @@ namespace COP4365_P2
             chart_stock.Invalidate();
         }
 
-        // updates the candlesticks range when the 
+        // updates the candlesticks range and annotations
         private void button_updateStockDataGridView_Click(object sender, EventArgs e)
         {
-            updateStock();
+            updateStockChart();
             /*            List<smartCandlestick> filteredCandlesticks = getCandlesticksInRange(allCandlesticks);
                         candlesticks = new BindingList<smartCandlestick>(filteredCandlesticks);
 
@@ -166,6 +168,12 @@ namespace COP4365_P2
                         chart_stock.Invalidate();
             */
 
+        }
+
+        // will automatically update the stocks and arrow annotations when the user changes the pattern selection
+        private void comboBox_patterns_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            updateStockChart();
         }
     }
 }

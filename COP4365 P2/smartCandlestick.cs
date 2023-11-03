@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms.DataVisualization.Charting;
 
-namespace COP4365_P2 // use combobox to select which type of candlestick to see
-{                    // then annotate and point arrwo on chart to show which candlestick
-                    // Dictionary<TypeCandlestick, list of indices or candlesticks from tempList for that type of candlestick >
+namespace COP4365_P2 
+{    
+    // derived class that allows for finding candlestick patterns
     public class smartCandlestick : candlestick
     {
         public static double dojiLeeway = 0.05;
@@ -31,13 +31,17 @@ namespace COP4365_P2 // use combobox to select which type of candlestick to see
             // upperTail must be 3% or less of the entire range
             // bodyRange must be >= 20% and <= 30%
 
+        // constructor that calls the base class constructor 
         public smartCandlestick() : base() { }
+
+        // initializes higher level properties and patterns
         public smartCandlestick(String rowOfData) : base(rowOfData)
         {
             initHigherProperties();
-            computePatterns();
+            initPatternProperties();
         }
 
+        // calculates higher properties that allow for easier calculations
         private void initHigherProperties() 
         {
             range = Math.Abs(high - low);
@@ -49,20 +53,27 @@ namespace COP4365_P2 // use combobox to select which type of candlestick to see
         }
 
         private bool leeway() { return false; }
-        private static double CalculatePercentageDifference(double value1, double value2)
+
+        // calculates the percent difference between two values given
+        private double CalculatePercentDiff(double value1, double value2)
         {
             double difference = Math.Abs(value1 - value2);
             double average = (value1 + value2) / 2;
-            return (difference / average) * 100;
+            return difference / average;
         }
 
-        private void computePatterns() 
+        // initializes the bool value of the stock candlestick patterns
+        private void initPatternProperties() 
         {
             isBullish = close > ((decimal)1.05 * open);
             isBearish = close < ((decimal)0.95 * open);
             isNeutral = bodyRange <= ((decimal)0.05 * open);
             isMarubozu = bodyRange == range;
-            isDoji = CalculatePercentageDifference((double)open, (double)close) < 0.05;
+
+            double percentDiff = CalculatePercentDiff((double)open, (double)close);
+            isDoji = percentDiff < 0.03;
+
+
         }
        
     }
