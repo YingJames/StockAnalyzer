@@ -52,8 +52,6 @@ namespace COP4365_P2
             bottomTail = Math.Abs(bottomPrice - low);
         }
 
-        private bool leeway() { return false; }
-
         // calculates the percent difference between two values given
         private double CalculatePercentDiff(double value1, double value2)
         {
