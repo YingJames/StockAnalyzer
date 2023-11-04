@@ -225,6 +225,7 @@ namespace COP4365_P2
         private void openFileDialog_stockLoader_FileOk(object sender, CancelEventArgs e)
         {
             //multiSymbolTempList = loadCandlesticks(openFileDialog_stockLoader.FileNames);
+            multiSymbolTempList.Clear();
             foreach (string filePath in openFileDialog_stockLoader.FileNames)
             {
                 tempList = loadCandlesticks(filePath);
