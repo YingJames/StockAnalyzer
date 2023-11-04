@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dateTimePicker_endDate = new System.Windows.Forms.DateTimePicker();
             this.label_endDate = new System.Windows.Forms.Label();
             this.label_startDate = new System.Windows.Forms.Label();
@@ -50,7 +50,7 @@
             // dateTimePicker_endDate
             // 
             this.dateTimePicker_endDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker_endDate.Location = new System.Drawing.Point(541, 438);
+            this.dateTimePicker_endDate.Location = new System.Drawing.Point(252, 391);
             this.dateTimePicker_endDate.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker_endDate.Name = "dateTimePicker_endDate";
             this.dateTimePicker_endDate.Size = new System.Drawing.Size(135, 20);
@@ -59,7 +59,7 @@
             // label_endDate
             // 
             this.label_endDate.AutoSize = true;
-            this.label_endDate.Location = new System.Drawing.Point(582, 423);
+            this.label_endDate.Location = new System.Drawing.Point(293, 376);
             this.label_endDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_endDate.Name = "label_endDate";
             this.label_endDate.Size = new System.Drawing.Size(52, 13);
@@ -69,7 +69,7 @@
             // label_startDate
             // 
             this.label_startDate.AutoSize = true;
-            this.label_startDate.Location = new System.Drawing.Point(156, 423);
+            this.label_startDate.Location = new System.Drawing.Point(292, 335);
             this.label_startDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_startDate.Name = "label_startDate";
             this.label_startDate.Size = new System.Drawing.Size(55, 13);
@@ -79,7 +79,7 @@
             // dateTimePicker_startDate
             // 
             this.dateTimePicker_startDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker_startDate.Location = new System.Drawing.Point(116, 438);
+            this.dateTimePicker_startDate.Location = new System.Drawing.Point(252, 350);
             this.dateTimePicker_startDate.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker_startDate.Name = "dateTimePicker_startDate";
             this.dateTimePicker_startDate.Size = new System.Drawing.Size(135, 20);
@@ -88,40 +88,40 @@
             // 
             // button_updateStockDataGridView
             // 
-            this.button_updateStockDataGridView.Location = new System.Drawing.Point(371, 402);
+            this.button_updateStockDataGridView.Location = new System.Drawing.Point(406, 372);
             this.button_updateStockDataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.button_updateStockDataGridView.Name = "button_updateStockDataGridView";
-            this.button_updateStockDataGridView.Size = new System.Drawing.Size(91, 55);
+            this.button_updateStockDataGridView.Size = new System.Drawing.Size(105, 39);
             this.button_updateStockDataGridView.TabIndex = 19;
-            this.button_updateStockDataGridView.Text = "Update Start & End Date";
+            this.button_updateStockDataGridView.Text = "Update";
             this.button_updateStockDataGridView.UseVisualStyleBackColor = true;
             this.button_updateStockDataGridView.Click += new System.EventHandler(this.button_updateStockDataGridView_Click);
             // 
             // chart_stock
             // 
-            chartArea1.AlignWithChartArea = "area_volume";
-            chartArea1.CursorX.IsUserEnabled = true;
-            chartArea1.CursorX.IsUserSelectionEnabled = true;
-            chartArea1.Name = "area_OHLC";
-            chartArea2.CursorX.IsUserEnabled = true;
-            chartArea2.CursorX.IsUserSelectionEnabled = true;
-            chartArea2.Name = "area_volume";
-            this.chart_stock.ChartAreas.Add(chartArea1);
-            this.chart_stock.ChartAreas.Add(chartArea2);
-            legend1.Name = "Legend1";
-            this.chart_stock.Legends.Add(legend1);
+            chartArea3.AlignWithChartArea = "area_volume";
+            chartArea3.CursorX.IsUserEnabled = true;
+            chartArea3.CursorX.IsUserSelectionEnabled = true;
+            chartArea3.Name = "area_OHLC";
+            chartArea4.CursorX.IsUserEnabled = true;
+            chartArea4.CursorX.IsUserSelectionEnabled = true;
+            chartArea4.Name = "area_volume";
+            this.chart_stock.ChartAreas.Add(chartArea3);
+            this.chart_stock.ChartAreas.Add(chartArea4);
+            legend2.Name = "Legend1";
+            this.chart_stock.Legends.Add(legend2);
             this.chart_stock.Location = new System.Drawing.Point(12, 12);
             this.chart_stock.Name = "chart_stock";
-            series1.ChartArea = "area_OHLC";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Candlestick;
-            series1.Legend = "Legend1";
-            series1.Name = "series_OHLC";
-            series1.YValuesPerPoint = 4;
-            series2.ChartArea = "area_volume";
-            series2.Legend = "Legend1";
-            series2.Name = "series_volume";
-            this.chart_stock.Series.Add(series1);
-            this.chart_stock.Series.Add(series2);
+            series3.ChartArea = "area_OHLC";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Candlestick;
+            series3.Legend = "Legend1";
+            series3.Name = "series_OHLC";
+            series3.YValuesPerPoint = 4;
+            series4.ChartArea = "area_volume";
+            series4.Legend = "Legend1";
+            series4.Name = "series_volume";
+            this.chart_stock.Series.Add(series3);
+            this.chart_stock.Series.Add(series4);
             this.chart_stock.Size = new System.Drawing.Size(709, 305);
             this.chart_stock.TabIndex = 20;
             this.chart_stock.Text = "chart_stock";
@@ -129,16 +129,16 @@
             // comboBox_patterns
             // 
             this.comboBox_patterns.FormattingEnabled = true;
-            this.comboBox_patterns.Location = new System.Drawing.Point(600, 348);
+            this.comboBox_patterns.Location = new System.Drawing.Point(406, 350);
             this.comboBox_patterns.Name = "comboBox_patterns";
-            this.comboBox_patterns.Size = new System.Drawing.Size(121, 21);
+            this.comboBox_patterns.Size = new System.Drawing.Size(105, 21);
             this.comboBox_patterns.TabIndex = 21;
             this.comboBox_patterns.SelectedIndexChanged += new System.EventHandler(this.comboBox_patterns_SelectedIndexChanged);
             // 
             // label_patterns
             // 
             this.label_patterns.AutoSize = true;
-            this.label_patterns.Location = new System.Drawing.Point(600, 332);
+            this.label_patterns.Location = new System.Drawing.Point(424, 334);
             this.label_patterns.Name = "label_patterns";
             this.label_patterns.Size = new System.Drawing.Size(72, 13);
             this.label_patterns.TabIndex = 22;
@@ -152,7 +152,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(807, 471);
+            this.ClientSize = new System.Drawing.Size(737, 459);
             this.Controls.Add(this.label_patterns);
             this.Controls.Add(this.comboBox_patterns);
             this.Controls.Add(this.chart_stock);

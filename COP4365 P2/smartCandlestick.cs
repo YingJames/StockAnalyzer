@@ -78,7 +78,6 @@ namespace COP4365_P2
             isDragonFlyDoji = isDoji && topTailRatio <= 0.3 && bottomTailRatio >= 0.5;
             isGravestoneDoji = isDoji && bottomTailRatio <= 0.3 && topTailRatio >= 0.5;
 
-            // TODO: hammer needs to be 20%-40% body
             double bodyRatio = (double)(bodyRange / range);
             bool isBodyHammerRatio = bodyRatio <= 0.40 && bodyRatio >= 0.25 ;
             isHammer = (topTail / range) <= (decimal)0.30 && isBodyHammerRatio && topTailRatio >= 0.1;

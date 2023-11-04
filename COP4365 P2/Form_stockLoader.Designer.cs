@@ -29,11 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.openFileDialog_stockLoader = new System.Windows.Forms.OpenFileDialog();
             this.button_loadStock = new System.Windows.Forms.Button();
             this.comboBox_stockSymbols = new System.Windows.Forms.ComboBox();
@@ -43,12 +38,7 @@
             this.label_startDate = new System.Windows.Forms.Label();
             this.label_endDate = new System.Windows.Forms.Label();
             this.dateTimePicker_endDate = new System.Windows.Forms.DateTimePicker();
-            this.button_updateStockDataGridView = new System.Windows.Forms.Button();
-            this.chart_stock = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.label_chartZoomTip = new System.Windows.Forms.Label();
-            this.button_resetZoom = new System.Windows.Forms.Button();
             this.candlestickBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.chart_stock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.candlestickBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,7 +51,7 @@
             // 
             // button_loadStock
             // 
-            this.button_loadStock.Location = new System.Drawing.Point(195, 26);
+            this.button_loadStock.Location = new System.Drawing.Point(241, 31);
             this.button_loadStock.Margin = new System.Windows.Forms.Padding(2);
             this.button_loadStock.Name = "button_loadStock";
             this.button_loadStock.Size = new System.Drawing.Size(103, 55);
@@ -136,68 +126,6 @@
             this.dateTimePicker_endDate.Size = new System.Drawing.Size(135, 20);
             this.dateTimePicker_endDate.TabIndex = 14;
             // 
-            // button_updateStockDataGridView
-            // 
-            this.button_updateStockDataGridView.Location = new System.Drawing.Point(302, 26);
-            this.button_updateStockDataGridView.Margin = new System.Windows.Forms.Padding(2);
-            this.button_updateStockDataGridView.Name = "button_updateStockDataGridView";
-            this.button_updateStockDataGridView.Size = new System.Drawing.Size(91, 55);
-            this.button_updateStockDataGridView.TabIndex = 15;
-            this.button_updateStockDataGridView.Text = "Update Start & End Date";
-            this.button_updateStockDataGridView.UseVisualStyleBackColor = true;
-            this.button_updateStockDataGridView.Click += new System.EventHandler(this.button_updateStockDataGridView_Click);
-            // 
-            // chart_stock
-            // 
-            chartArea1.AlignWithChartArea = "area_volume";
-            chartArea1.CursorX.IsUserEnabled = true;
-            chartArea1.CursorX.IsUserSelectionEnabled = true;
-            chartArea1.Name = "area_OHLC";
-            chartArea2.CursorX.IsUserEnabled = true;
-            chartArea2.CursorX.IsUserSelectionEnabled = true;
-            chartArea2.Name = "area_volume";
-            this.chart_stock.ChartAreas.Add(chartArea1);
-            this.chart_stock.ChartAreas.Add(chartArea2);
-            this.chart_stock.DataSource = this.candlestickBindingSource;
-            legend1.Name = "Legend1";
-            this.chart_stock.Legends.Add(legend1);
-            this.chart_stock.Location = new System.Drawing.Point(12, 221);
-            this.chart_stock.Name = "chart_stock";
-            series1.ChartArea = "area_OHLC";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Candlestick;
-            series1.Legend = "Legend1";
-            series1.Name = "series_OHLC";
-            series1.YValuesPerPoint = 4;
-            series2.ChartArea = "area_volume";
-            series2.Legend = "Legend1";
-            series2.Name = "series_volume";
-            this.chart_stock.Series.Add(series1);
-            this.chart_stock.Series.Add(series2);
-            this.chart_stock.Size = new System.Drawing.Size(403, 141);
-            this.chart_stock.TabIndex = 17;
-            this.chart_stock.Text = "chart_stock";
-            this.chart_stock.PrePaint += new System.EventHandler<System.Windows.Forms.DataVisualization.Charting.ChartPaintEventArgs>(this.chart_stock_PrePaint);
-            // 
-            // label_chartZoomTip
-            // 
-            this.label_chartZoomTip.AutoSize = true;
-            this.label_chartZoomTip.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_chartZoomTip.Location = new System.Drawing.Point(20, 196);
-            this.label_chartZoomTip.Name = "label_chartZoomTip";
-            this.label_chartZoomTip.Size = new System.Drawing.Size(285, 20);
-            this.label_chartZoomTip.TabIndex = 18;
-            this.label_chartZoomTip.Text = "* Click and drag on the chart to zoom in";
-            // 
-            // button_resetZoom
-            // 
-            this.button_resetZoom.Location = new System.Drawing.Point(311, 174);
-            this.button_resetZoom.Name = "button_resetZoom";
-            this.button_resetZoom.Size = new System.Drawing.Size(95, 41);
-            this.button_resetZoom.TabIndex = 19;
-            this.button_resetZoom.Text = "Reset Chart Zoom";
-            this.button_resetZoom.UseVisualStyleBackColor = true;
-            this.button_resetZoom.Click += new System.EventHandler(this.button_resetZoom_Click);
-            // 
             // candlestickBindingSource
             // 
             this.candlestickBindingSource.DataSource = typeof(COP4365_P2.candlestick);
@@ -206,11 +134,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(452, 383);
-            this.Controls.Add(this.button_resetZoom);
-            this.Controls.Add(this.label_chartZoomTip);
-            this.Controls.Add(this.chart_stock);
-            this.Controls.Add(this.button_updateStockDataGridView);
+            this.ClientSize = new System.Drawing.Size(432, 158);
             this.Controls.Add(this.dateTimePicker_endDate);
             this.Controls.Add(this.label_endDate);
             this.Controls.Add(this.label_startDate);
@@ -222,7 +146,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form_stockLoader";
             this.Text = "Stock Loader";
-            ((System.ComponentModel.ISupportInitialize)(this.chart_stock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.candlestickBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -241,10 +164,6 @@
         private System.Windows.Forms.Label label_startDate;
         private System.Windows.Forms.Label label_endDate;
         private System.Windows.Forms.DateTimePicker dateTimePicker_endDate;
-        private System.Windows.Forms.Button button_updateStockDataGridView;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart_stock;
-        private System.Windows.Forms.Label label_chartZoomTip;
-        private System.Windows.Forms.Button button_resetZoom;
     }
 }
 
