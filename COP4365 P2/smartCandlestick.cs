@@ -73,6 +73,12 @@ namespace COP4365_P2
             double percentDiff = CalculatePercentDiff((double)open, (double)close);
             isDoji = percentDiff < 0.03;
 
+            isDragonFlyDoji = isDoji && (topTail / range) <= (decimal)0.3;
+            isGravestoneDoji = isDoji && (bottomTail / range) <= (decimal)0.3;
+
+            double bodyRatio = (double)(bodyRange / range);
+            isHammer = (topTail / range) <= (decimal)0.3 && bodyRatio <= 0.3 && topTail != 0;
+            isInvertedHammer = (bottomTail / range) <= (decimal)0.3 && bodyRatio <= 0.3 && bottomTail != 0;
 
         }
        
