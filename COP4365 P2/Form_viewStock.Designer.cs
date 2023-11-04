@@ -43,6 +43,7 @@
             this.comboBox_patterns = new System.Windows.Forms.ComboBox();
             this.label_patterns = new System.Windows.Forms.Label();
             this.candlestickBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label_hint = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chart_stock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.candlestickBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -50,7 +51,7 @@
             // dateTimePicker_endDate
             // 
             this.dateTimePicker_endDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker_endDate.Location = new System.Drawing.Point(252, 391);
+            this.dateTimePicker_endDate.Location = new System.Drawing.Point(254, 416);
             this.dateTimePicker_endDate.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker_endDate.Name = "dateTimePicker_endDate";
             this.dateTimePicker_endDate.Size = new System.Drawing.Size(135, 20);
@@ -59,7 +60,7 @@
             // label_endDate
             // 
             this.label_endDate.AutoSize = true;
-            this.label_endDate.Location = new System.Drawing.Point(293, 376);
+            this.label_endDate.Location = new System.Drawing.Point(295, 401);
             this.label_endDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_endDate.Name = "label_endDate";
             this.label_endDate.Size = new System.Drawing.Size(52, 13);
@@ -69,7 +70,7 @@
             // label_startDate
             // 
             this.label_startDate.AutoSize = true;
-            this.label_startDate.Location = new System.Drawing.Point(292, 335);
+            this.label_startDate.Location = new System.Drawing.Point(294, 360);
             this.label_startDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_startDate.Name = "label_startDate";
             this.label_startDate.Size = new System.Drawing.Size(55, 13);
@@ -79,7 +80,7 @@
             // dateTimePicker_startDate
             // 
             this.dateTimePicker_startDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker_startDate.Location = new System.Drawing.Point(252, 350);
+            this.dateTimePicker_startDate.Location = new System.Drawing.Point(254, 375);
             this.dateTimePicker_startDate.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker_startDate.Name = "dateTimePicker_startDate";
             this.dateTimePicker_startDate.Size = new System.Drawing.Size(135, 20);
@@ -88,7 +89,7 @@
             // 
             // button_updateStockDataGridView
             // 
-            this.button_updateStockDataGridView.Location = new System.Drawing.Point(406, 372);
+            this.button_updateStockDataGridView.Location = new System.Drawing.Point(408, 397);
             this.button_updateStockDataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.button_updateStockDataGridView.Name = "button_updateStockDataGridView";
             this.button_updateStockDataGridView.Size = new System.Drawing.Size(105, 39);
@@ -129,7 +130,7 @@
             // comboBox_patterns
             // 
             this.comboBox_patterns.FormattingEnabled = true;
-            this.comboBox_patterns.Location = new System.Drawing.Point(406, 350);
+            this.comboBox_patterns.Location = new System.Drawing.Point(408, 375);
             this.comboBox_patterns.Name = "comboBox_patterns";
             this.comboBox_patterns.Size = new System.Drawing.Size(105, 21);
             this.comboBox_patterns.TabIndex = 21;
@@ -138,7 +139,7 @@
             // label_patterns
             // 
             this.label_patterns.AutoSize = true;
-            this.label_patterns.Location = new System.Drawing.Point(424, 334);
+            this.label_patterns.Location = new System.Drawing.Point(426, 359);
             this.label_patterns.Name = "label_patterns";
             this.label_patterns.Size = new System.Drawing.Size(72, 13);
             this.label_patterns.TabIndex = 22;
@@ -148,11 +149,22 @@
             // 
             this.candlestickBindingSource.DataSource = typeof(COP4365_P2.candlestick);
             // 
+            // label_hint
+            // 
+            this.label_hint.AutoSize = true;
+            this.label_hint.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_hint.Location = new System.Drawing.Point(251, 330);
+            this.label_hint.Name = "label_hint";
+            this.label_hint.Size = new System.Drawing.Size(269, 18);
+            this.label_hint.TabIndex = 23;
+            this.label_hint.Text = "* Click and drag on the chart to zoom in";
+            // 
             // Form_viewStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(737, 459);
+            this.Controls.Add(this.label_hint);
             this.Controls.Add(this.label_patterns);
             this.Controls.Add(this.comboBox_patterns);
             this.Controls.Add(this.chart_stock);
@@ -181,5 +193,6 @@
         private System.Windows.Forms.BindingSource candlestickBindingSource;
         private System.Windows.Forms.ComboBox comboBox_patterns;
         private System.Windows.Forms.Label label_patterns;
+        private System.Windows.Forms.Label label_hint;
     }
 }
