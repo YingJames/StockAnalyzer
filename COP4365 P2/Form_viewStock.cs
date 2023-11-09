@@ -23,8 +23,10 @@ namespace COP4365_P2
         ChartArea area_OHLC;
         ChartArea area_volume;
 
+        DateTime startTime;
+        DateTime endTime;
         // construct lists and chart components
-        public Form_viewStock(string symbol, List<smartCandlestick> listOfCandlesticks)
+        public Form_viewStock(string symbol, List<smartCandlestick> listOfCandlesticks, DateTime startDate, DateTime endDate)
         {
             InitializeComponent();
             stockSymbol = symbol;
@@ -60,6 +62,9 @@ namespace COP4365_P2
             comboBox_patterns.Items.AddRange(patterns);
             comboBox_patterns.SelectedIndex = 0;
 
+            dateTimePicker_startDate.Value = startDate;
+            dateTimePicker_endDate.Value = endDate;
+
             updateStockChart();
         }
 
@@ -75,6 +80,27 @@ namespace COP4365_P2
                     break;
 
                 if (candlestick.date >= dateTimePicker_startDate.Value)
+                {
+                    reversedTempList.Add(candlestick);
+                }
+            }
+            tempList.Reverse();
+
+            reversedTempList.Reverse();
+            return reversedTempList;
+        }
+
+        private List<smartCandlestick> getCandlesticksInRange(List<smartCandlestick> tempList, DateTime startDate, DateTime endDate)
+        {
+
+            List<smartCandlestick> reversedTempList = new List<smartCandlestick>();
+            tempList.Reverse();
+            foreach (smartCandlestick candlestick in tempList)
+            {
+                if (candlestick.date < startDate)
+                    break;
+
+                if (candlestick.date <= endDate)
                 {
                     reversedTempList.Add(candlestick);
                 }
@@ -107,7 +133,9 @@ namespace COP4365_P2
         // filters the candlesticks based on date range and creates annotations on the chart
         private void updateStockChart()
         {
-            List<smartCandlestick> filteredCandlesticks = getCandlesticksInRange(allCandlesticks);
+            startTime = dateTimePicker_startDate.Value;
+            endTime = dateTimePicker_endDate.Value;
+            List<smartCandlestick> filteredCandlesticks = getCandlesticksInRange(allCandlesticks, startTime, endTime);
             candlesticks = new BindingList<smartCandlestick>(filteredCandlesticks);
 
             chart_stock.DataSource = candlesticks;
@@ -153,21 +181,6 @@ namespace COP4365_P2
         private void button_updateStockDataGridView_Click(object sender, EventArgs e)
         {
             updateStockChart();
-            /*            List<smartCandlestick> filteredCandlesticks = getCandlesticksInRange(allCandlesticks);
-                        candlesticks = new BindingList<smartCandlestick>(filteredCandlesticks);
-
-                        chart_stock.DataSource = candlesticks;
-                        chart_stock.DataBind();
-
-                        chart_stock.Annotations.Clear();
-                        foreach (DataPoint candlestickPoint in series_OHLC.Points)
-                        {
-                            ArrowAnnotation arrow = makeArrow(candlestickPoint);
-                            chart_stock.Annotations.Add(arrow);
-                        }
-                        chart_stock.Invalidate();
-            */
-
         }
 
         // will automatically update the stocks and arrow annotations when the user changes the pattern selection

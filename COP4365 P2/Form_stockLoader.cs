@@ -20,9 +20,11 @@ namespace COP4365_P2
         Dictionary<String, List<smartCandlestick>> multiSymbolTempList = new Dictionary<string, List<smartCandlestick>>(100);
 
         Series series_OHLC;
+/*
         Series series_volume;
         ChartArea area_OHLC;
         ChartArea area_volume;
+*/
 
         // when constructing/loading the app, populate the symbol combobox with the symbols in the folder
         public Form_stockLoader()
@@ -154,7 +156,7 @@ namespace COP4365_P2
             foreach (string filePath in openFileDialog_stockLoader.FileNames)
             {
                 tempList = loadCandlesticks(filePath);
-                tempList = getCandlesticksInRange(tempList);
+                //tempList = getCandlesticksInRange(tempList);
 
                 string filename = Path.GetFileName(filePath);
                 // only get symbol before '-' and prevent duplicates
@@ -166,9 +168,11 @@ namespace COP4365_P2
    
             //updateChartStock();
 
+            DateTime startDate = dateTimePicker_startDate.Value;
+            DateTime endDate = dateTimePicker_endDate.Value;
             foreach (string stockSymbol in multiSymbolTempList.Keys)
             {
-                Form viewStockForm = new Form_viewStock(stockSymbol, multiSymbolTempList[stockSymbol]);
+                Form viewStockForm = new Form_viewStock(stockSymbol, multiSymbolTempList[stockSymbol], startDate, endDate);
                 //viewStockForm.Show(this);
                 viewStockForm.Show();
             }
