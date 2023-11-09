@@ -69,27 +69,6 @@ namespace COP4365_P2
         }
 
         // filters out the candlesticks based on the date time picker
-        private List<smartCandlestick> getCandlesticksInRange(List<smartCandlestick> tempList)
-        {
-
-            List<smartCandlestick> reversedTempList = new List<smartCandlestick>();
-            tempList.Reverse();
-            foreach (smartCandlestick candlestick in tempList)
-            {
-                if (candlestick.date > dateTimePicker_endDate.Value)
-                    break;
-
-                if (candlestick.date >= dateTimePicker_startDate.Value)
-                {
-                    reversedTempList.Add(candlestick);
-                }
-            }
-            tempList.Reverse();
-
-            reversedTempList.Reverse();
-            return reversedTempList;
-        }
-
         private List<smartCandlestick> getCandlesticksInRange(List<smartCandlestick> tempList, DateTime startDate, DateTime endDate)
         {
 
