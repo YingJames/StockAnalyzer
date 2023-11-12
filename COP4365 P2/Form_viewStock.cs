@@ -37,6 +37,7 @@ namespace COP4365_P2
             allCandlesticks = listOfCandlesticks;
             candlesticks = new BindingList<smartCandlestick>(allCandlesticks);
             chart_stock.DataSource = candlesticks;
+            chart_stock.Titles.Add(stockSymbol);
             series_OHLC = chart_stock.Series["series_OHLC"];
             series_volume = chart_stock.Series["series_volume"];
             area_OHLC = chart_stock.ChartAreas["area_OHLC"];
