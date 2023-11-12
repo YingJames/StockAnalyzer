@@ -27,9 +27,6 @@ namespace COP4365_P2
         public bool isGravestoneDoji { get; set; } = false;
         public bool isHammer { get; set; } = false; 
         public bool isInvertedHammer { get; set; } = false;
-        // need function that has access to these parameters to set true or false
-            // upperTail must be 3% or less of the entire range
-            // bodyRange must be >= 20% and <= 30%
 
         // constructor that calls the base class constructor 
         public smartCandlestick() : base() { }

@@ -51,9 +51,10 @@
             // 
             // button_loadStock
             // 
-            this.button_loadStock.Location = new System.Drawing.Point(362, 48);
+            this.button_loadStock.Location = new System.Drawing.Point(241, 31);
+            this.button_loadStock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button_loadStock.Name = "button_loadStock";
-            this.button_loadStock.Size = new System.Drawing.Size(154, 85);
+            this.button_loadStock.Size = new System.Drawing.Size(103, 55);
             this.button_loadStock.TabIndex = 0;
             this.button_loadStock.Text = "Load OpenFileDialog";
             this.button_loadStock.UseVisualStyleBackColor = true;
@@ -62,64 +63,67 @@
             // comboBox_stockSymbols
             // 
             this.comboBox_stockSymbols.FormattingEnabled = true;
-            this.comboBox_stockSymbols.Location = new System.Drawing.Point(69, 40);
+            this.comboBox_stockSymbols.Location = new System.Drawing.Point(46, 26);
+            this.comboBox_stockSymbols.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox_stockSymbols.Name = "comboBox_stockSymbols";
-            this.comboBox_stockSymbols.Size = new System.Drawing.Size(200, 28);
+            this.comboBox_stockSymbols.Size = new System.Drawing.Size(135, 21);
             this.comboBox_stockSymbols.TabIndex = 5;
             // 
             // dateTimePicker_startDate
             // 
             this.dateTimePicker_startDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker_startDate.Location = new System.Drawing.Point(69, 103);
+            this.dateTimePicker_startDate.Location = new System.Drawing.Point(46, 67);
+            this.dateTimePicker_startDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimePicker_startDate.Name = "dateTimePicker_startDate";
-            this.dateTimePicker_startDate.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePicker_startDate.Size = new System.Drawing.Size(135, 20);
             this.dateTimePicker_startDate.TabIndex = 6;
-            this.dateTimePicker_startDate.Value = new System.DateTime(2001, 1, 1, 0, 0, 0, 0);
+            this.dateTimePicker_startDate.Value = new System.DateTime(2010, 1, 1, 0, 0, 0, 0);
             // 
             // label_stockSymbols
             // 
             this.label_stockSymbols.AutoSize = true;
-            this.label_stockSymbols.Location = new System.Drawing.Point(74, 17);
-            this.label_stockSymbols.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_stockSymbols.Location = new System.Drawing.Point(49, 11);
             this.label_stockSymbols.Name = "label_stockSymbols";
-            this.label_stockSymbols.Size = new System.Drawing.Size(69, 20);
+            this.label_stockSymbols.Size = new System.Drawing.Size(46, 13);
             this.label_stockSymbols.TabIndex = 10;
             this.label_stockSymbols.Text = "Symbols";
             // 
             // label_periodTip
             // 
             this.label_periodTip.AutoSize = true;
-            this.label_periodTip.Location = new System.Drawing.Point(288, 17);
-            this.label_periodTip.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_periodTip.Location = new System.Drawing.Point(192, 11);
             this.label_periodTip.Name = "label_periodTip";
-            this.label_periodTip.Size = new System.Drawing.Size(298, 20);
+            this.label_periodTip.Size = new System.Drawing.Size(201, 13);
             this.label_periodTip.TabIndex = 11;
             this.label_periodTip.Text = "* Period can be set in the OpenFileDialog";
             // 
             // label_startDate
             // 
             this.label_startDate.AutoSize = true;
-            this.label_startDate.Location = new System.Drawing.Point(74, 80);
+            this.label_startDate.Location = new System.Drawing.Point(49, 52);
+            this.label_startDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_startDate.Name = "label_startDate";
-            this.label_startDate.Size = new System.Drawing.Size(83, 20);
+            this.label_startDate.Size = new System.Drawing.Size(55, 13);
             this.label_startDate.TabIndex = 12;
             this.label_startDate.Text = "Start Date";
             // 
             // label_endDate
             // 
             this.label_endDate.AutoSize = true;
-            this.label_endDate.Location = new System.Drawing.Point(74, 143);
+            this.label_endDate.Location = new System.Drawing.Point(49, 93);
+            this.label_endDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_endDate.Name = "label_endDate";
-            this.label_endDate.Size = new System.Drawing.Size(77, 20);
+            this.label_endDate.Size = new System.Drawing.Size(52, 13);
             this.label_endDate.TabIndex = 13;
             this.label_endDate.Text = "End Date";
             // 
             // dateTimePicker_endDate
             // 
             this.dateTimePicker_endDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker_endDate.Location = new System.Drawing.Point(69, 166);
+            this.dateTimePicker_endDate.Location = new System.Drawing.Point(46, 108);
+            this.dateTimePicker_endDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimePicker_endDate.Name = "dateTimePicker_endDate";
-            this.dateTimePicker_endDate.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePicker_endDate.Size = new System.Drawing.Size(135, 20);
             this.dateTimePicker_endDate.TabIndex = 14;
             // 
             // candlestickBindingSource
@@ -128,9 +132,9 @@
             // 
             // Form_stockLoader
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(648, 243);
+            this.ClientSize = new System.Drawing.Size(432, 158);
             this.Controls.Add(this.dateTimePicker_endDate);
             this.Controls.Add(this.label_endDate);
             this.Controls.Add(this.label_startDate);
@@ -139,6 +143,7 @@
             this.Controls.Add(this.dateTimePicker_startDate);
             this.Controls.Add(this.comboBox_stockSymbols);
             this.Controls.Add(this.button_loadStock);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form_stockLoader";
             this.Text = "Stock Loader";
             ((System.ComponentModel.ISupportInitialize)(this.candlestickBindingSource)).EndInit();
