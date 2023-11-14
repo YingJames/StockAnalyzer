@@ -6,7 +6,7 @@ using System.IO;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
-namespace COP4365_P2
+namespace COP4365_P3
 {
     // form that will load the stocks from multiple files in to individual forms
     public partial class Form_stockLoader : Form

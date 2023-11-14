@@ -1,4 +1,4 @@
-﻿using COP4365_P2;
+﻿using COP4365_P3;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms.DataVisualization.Charting;
 
-namespace COP4365_P2 
+namespace COP4365_P3 
 {    
     // derived class that allows for finding candlestick patterns
     public class smartCandlestick : candlestick

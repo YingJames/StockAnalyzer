@@ -1,4 +1,4 @@
-﻿namespace COP4365_P2
+﻿namespace COP4365_P3
 {
     partial class Form_stockLoader
     {
@@ -124,7 +124,7 @@
             // 
             // candlestickBindingSource
             // 
-            this.candlestickBindingSource.DataSource = typeof(COP4365_P2.candlestick);
+            this.candlestickBindingSource.DataSource = typeof(COP4365_P3.candlestick);
             // 
             // Form_stockLoader
             // 

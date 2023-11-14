@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace COP4365_P2
+namespace COP4365_P3
 {
     // candlestick object represents stock data
     public class candlestick
