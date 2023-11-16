@@ -142,6 +142,11 @@ namespace COP4365_P3
             if (patternProperties.TryGetValue(selectedPattern, out Func<smartCandlestick, bool> property))
             {
                 int index = 0;
+                //DataPoint candlestickPoint;
+    /*            for (index = 0; index < series_OHLC.Points.Count; index++)
+                {
+
+                }*/
                 foreach (DataPoint candlestickPoint in series_OHLC.Points)
                 {
                     // takes smartCandlestick and returns a bool
