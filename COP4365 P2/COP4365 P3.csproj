@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="candlestick.cs" />
+    <Compile Include="PatternRecognizers\DojiRecognizer.cs" />
     <Compile Include="Form_viewStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +61,7 @@
     <Compile Include="Form_stockLoader.Designer.cs">
       <DependentUpon>Form_stockLoader.cs</DependentUpon>
     </Compile>
+    <Compile Include="PatternRecognizers\PeakRecognizer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recognizer.cs" />
