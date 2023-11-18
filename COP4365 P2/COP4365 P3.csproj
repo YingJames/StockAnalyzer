@@ -48,9 +48,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="candlestick.cs" />
-    <Compile Include="PatternRecognizers\SinglePatternRecognizers\BearishRecognizer.cs" />
-    <Compile Include="PatternRecognizers\SinglePatternRecognizers\BullishRecognizer.cs" />
-    <Compile Include="PatternRecognizers\SinglePatternRecognizers\DojiRecognizer.cs" />
+    <Compile Include="PatternRecognizers\SingleCsPatternRecognizers\BearishRecognizer.cs" />
+    <Compile Include="PatternRecognizers\SingleCsPatternRecognizers\BullishRecognizer.cs" />
+    <Compile Include="PatternRecognizers\SingleCsPatternRecognizers\DojiRecognizer.cs" />
     <Compile Include="Form_viewStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,12 +63,12 @@
     <Compile Include="Form_stockLoader.Designer.cs">
       <DependentUpon>Form_stockLoader.cs</DependentUpon>
     </Compile>
-    <Compile Include="PatternRecognizers\SinglePatternRecognizers\DragonFlyDojiRecognizer.cs" />
-    <Compile Include="PatternRecognizers\SinglePatternRecognizers\GravestoneDojiRecognizer.cs" />
-    <Compile Include="PatternRecognizers\SinglePatternRecognizers\HammerRecognizer.cs" />
-    <Compile Include="PatternRecognizers\SinglePatternRecognizers\InvertedHammerRecognizer.cs" />
-    <Compile Include="PatternRecognizers\SinglePatternRecognizers\MarubozuRecognizer.cs" />
-    <Compile Include="PatternRecognizers\SinglePatternRecognizers\NeutralRecognizer.cs" />
+    <Compile Include="PatternRecognizers\SingleCsPatternRecognizers\DragonFlyDojiRecognizer.cs" />
+    <Compile Include="PatternRecognizers\SingleCsPatternRecognizers\GravestoneDojiRecognizer.cs" />
+    <Compile Include="PatternRecognizers\SingleCsPatternRecognizers\HammerRecognizer.cs" />
+    <Compile Include="PatternRecognizers\SingleCsPatternRecognizers\InvertedHammerRecognizer.cs" />
+    <Compile Include="PatternRecognizers\SingleCsPatternRecognizers\MarubozuRecognizer.cs" />
+    <Compile Include="PatternRecognizers\SingleCsPatternRecognizers\NeutralRecognizer.cs" />
     <Compile Include="PatternRecognizers\PeakRecognizer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
