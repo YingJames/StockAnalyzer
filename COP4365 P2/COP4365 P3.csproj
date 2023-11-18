@@ -69,7 +69,7 @@
     <Compile Include="PatternRecognizers\SingleCsPatternRecognizers\InvertedHammerRecognizer.cs" />
     <Compile Include="PatternRecognizers\SingleCsPatternRecognizers\MarubozuRecognizer.cs" />
     <Compile Include="PatternRecognizers\SingleCsPatternRecognizers\NeutralRecognizer.cs" />
-    <Compile Include="PatternRecognizers\PeakRecognizer.cs" />
+    <Compile Include="PatternRecognizers\MultiCsPatternRecognizers\PeakRecognizer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recognizer.cs" />

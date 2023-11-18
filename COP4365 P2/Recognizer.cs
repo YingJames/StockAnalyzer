@@ -8,7 +8,7 @@ namespace COP4365_P3
 {
     internal abstract class Recognizer
     {
-        int patternSize { get; set; }
+        public int patternSize { get; set; }
         public string patternName { get; set; }
         public Recognizer(string patternName, int patternSize)
         {

@@ -71,6 +71,7 @@ namespace COP4365_P3
             recognizers.Add(new GravestoneDojiRecognizer());
             recognizers.Add(new HammerRecognizer());
             recognizers.Add(new InvertedHammerRecognizer());
+            recognizers.Add(new PeakRecognizer());
 
             // add pattern name to combobox
             comboBox_patterns.Items.Add("None");
@@ -127,6 +128,35 @@ namespace COP4365_P3
             arrow.AnchorDataPoint = candlestickPoint;
             return arrow;
         }
+        
+/*        private RectangleAnnotation makeRectangle(int candlestickPointIndex, int patternSize)
+        {
+            RectangleAnnotation rectangle = new RectangleAnnotation();
+                DataPoint candlestickPoint = series_OHLC.Points[candlestickPointIndex];
+            double startX = series_OHLC.Points[candlestickPointIndex].XValue;
+            double endX = series_OHLC.Points[candlestickPointIndex - patternSize + 1].XValue;
+
+            double minY = series_OHLC.Points[candlestickPointIndex].YValues.Min();
+            double maxY = series_OHLC.Points[candlestickPointIndex].YValues.Max();
+            for (int i = candlestickPointIndex; i > candlestickPointIndex - patternSize; i--)
+            {
+                double currentYMin = series_OHLC.Points[i].YValues.Min();
+                double currentYMax = series_OHLC.Points[i].YValues.Max();
+                if (currentYMin < minY)
+                    minY = currentYMin;
+
+                if (currentYMax > maxY)
+                    maxY = currentYMax;
+            }
+
+            rectangle.AnchorDataPoint = series_OHLC.Points[candlestickPointIndex];
+            rectangle.Height = maxY - minY;
+            //rectangle.Width = (double) (startX - endX);
+            rectangle.Width = 5;
+            rectangle.BackColor = Color.Yellow;
+            return rectangle;
+
+        }*/
 
         // filters the candlesticks based on date range and creates annotations on the chart
         private void updateStockChart()
@@ -165,8 +195,11 @@ namespace COP4365_P3
                 DataPoint candlestickPoint = series_OHLC.Points[index];
                 ArrowAnnotation arrow = makeArrow(candlestickPoint);
                 chart_stock.Annotations.Add(arrow);
-                
+
+                //RectangleAnnotation rectangle = makeRectangle(index, selectedRecognizer.patternSize);
+                //chart_stock.Annotations.Add(rectangle);
             }
+
             chart_stock.Invalidate();
         }
 
