@@ -21,7 +21,7 @@ namespace COP4365_P3
             for (int i = patternSize-1; i < lscs.Count; i++)
             {
                 // build sublist
-                List<smartCandlestick> sublist = lscs.GetRange(i-patternSize+1, i);
+                List<smartCandlestick> sublist = lscs.GetRange(i-patternSize+1, patternSize);
 
                 if (RecognizePattern(sublist))
                     result.Add(i);

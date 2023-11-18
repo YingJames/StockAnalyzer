@@ -123,8 +123,11 @@ namespace COP4365_P3
 
             string selectedPattern = "is" + comboBox_patterns.SelectedItem.ToString();
 
+            DojiRecognizer dojiRecognizer = new DojiRecognizer();
+            List<int> candlestickIndices = new List<int>();
+            candlestickIndices = dojiRecognizer.Recognize(filteredCandlesticks);
             // Create a dictionary that maps the selectedPattern to the specified function
-            Dictionary<string, Func<smartCandlestick, bool>> patternProperties = new Dictionary<string, Func<smartCandlestick, bool>>
+/*            Dictionary<string, Func<smartCandlestick, bool>> patternProperties = new Dictionary<string, Func<smartCandlestick, bool>>
             {
                 { "isBullish", candlestick => candlestick.isBullish },
                 { "isBearish", candlestick => candlestick.isBearish },
@@ -139,7 +142,6 @@ namespace COP4365_P3
             };
 
             // checks the map to find the appropriate function based on the selected item in the combobox
-            List<int> candlestickIndices = new List<int>();
             if (patternProperties.TryGetValue(selectedPattern, out Func<smartCandlestick, bool> property))
             {
                 int index = 0;
@@ -149,7 +151,7 @@ namespace COP4365_P3
                     if (property(filteredCandlesticks[index]))
                         candlestickIndices.Add(index);
                 }
-/*                foreach (DataPoint candlestickPoint in series_OHLC.Points)
+*//*                foreach (DataPoint candlestickPoint in series_OHLC.Points)
                 {
                     // takes smartCandlestick and returns a bool
                     if (property(filteredCandlesticks[index]))
@@ -159,8 +161,8 @@ namespace COP4365_P3
                     }
                     index++;
                 }
-*/            }
-            foreach (int index in candlestickIndices)
+*//*            }
+*/            foreach (int index in candlestickIndices)
             {
                 DataPoint candlestickPoint = series_OHLC.Points[index];
                 ArrowAnnotation arrow = makeArrow(candlestickPoint);
