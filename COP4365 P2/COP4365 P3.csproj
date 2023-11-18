@@ -48,7 +48,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="candlestick.cs" />
-    <Compile Include="PatternRecognizers\DojiRecognizer.cs" />
+    <Compile Include="PatternRecognizers\SingleCandlestickRecognizers\BearishRecognizer.cs" />
+    <Compile Include="PatternRecognizers\SingleCandlestickRecognizers\BullishRecognizer.cs" />
+    <Compile Include="PatternRecognizers\SingleCandlestickRecognizers\DojiRecognizer.cs" />
     <Compile Include="Form_viewStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,6 +63,12 @@
     <Compile Include="Form_stockLoader.Designer.cs">
       <DependentUpon>Form_stockLoader.cs</DependentUpon>
     </Compile>
+    <Compile Include="PatternRecognizers\SingleCandlestickRecognizers\DragonFlyDojiRecognizer.cs" />
+    <Compile Include="PatternRecognizers\SingleCandlestickRecognizers\GravestoneDojiRecognizer.cs" />
+    <Compile Include="PatternRecognizers\SingleCandlestickRecognizers\HammerRecognizer.cs" />
+    <Compile Include="PatternRecognizers\SingleCandlestickRecognizers\InvertedHammerRecognizer.cs" />
+    <Compile Include="PatternRecognizers\SingleCandlestickRecognizers\MarubozuRecognizer.cs" />
+    <Compile Include="PatternRecognizers\SingleCandlestickRecognizers\NeutralRecognizer.cs" />
     <Compile Include="PatternRecognizers\PeakRecognizer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

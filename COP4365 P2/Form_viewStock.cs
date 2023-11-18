@@ -18,6 +18,7 @@ namespace COP4365_P3
         string stockSymbol { get; set; }
         private BindingList<smartCandlestick> candlesticks;
         private List<smartCandlestick> allCandlesticks { get; set; }
+        List<Recognizer> recognizers = new List<Recognizer>();
         Series series_OHLC;
         Series series_volume;
         ChartArea area_OHLC;
@@ -59,6 +60,8 @@ namespace COP4365_P3
             string[] patterns = new string[] { "None", "Bullish", "Bearish",
                 "Neutral", "Marubozu", "Doji",
                 "DragonFlyDoji", "GravestoneDoji", "Hammer", "InvertedHammer" };
+            recognizers.Add(new DojiRecognizer());
+            recognizers.Add(new DojiRecognizer());
             comboBox_patterns.Items.AddRange(patterns);
             comboBox_patterns.SelectedIndex = 0;
 
@@ -125,6 +128,7 @@ namespace COP4365_P3
 
             DojiRecognizer dojiRecognizer = new DojiRecognizer();
             List<int> candlestickIndices = new List<int>();
+
             candlestickIndices = dojiRecognizer.Recognize(filteredCandlesticks);
             // Create a dictionary that maps the selectedPattern to the specified function
 /*            Dictionary<string, Func<smartCandlestick, bool>> patternProperties = new Dictionary<string, Func<smartCandlestick, bool>>
