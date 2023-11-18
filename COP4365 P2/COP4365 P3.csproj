@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="candlestick.cs" />
+    <Compile Include="PatternRecognizers\MultiCsPatternRecognizers\BullishEngulfing.cs" />
     <Compile Include="PatternRecognizers\SingleCsPatternRecognizers\BearishRecognizer.cs" />
     <Compile Include="PatternRecognizers\SingleCsPatternRecognizers\BullishRecognizer.cs" />
     <Compile Include="PatternRecognizers\SingleCsPatternRecognizers\DojiRecognizer.cs" />
