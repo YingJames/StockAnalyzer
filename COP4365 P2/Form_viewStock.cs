@@ -1,4 +1,5 @@
-﻿using System;
+﻿using COP4365_P3.PatternRecognizers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -57,12 +58,27 @@ namespace COP4365_P3
             area_volume.AxisY2.Title = "Volume";
 
             // combobox for showing patterns
-            string[] patterns = new string[] { "None", "Bullish", "Bearish",
+/*            string[] patterns = new string[] { "None", "Bullish", "Bearish",
                 "Neutral", "Marubozu", "Doji",
                 "DragonFlyDoji", "GravestoneDoji", "Hammer", "InvertedHammer" };
+*/
+            recognizers.Add(new BullishRecognizer());
+            recognizers.Add(new BearishRecognizer());
+            recognizers.Add(new NeutralRecognizer());
+            recognizers.Add(new MarubozuRecognizer());
             recognizers.Add(new DojiRecognizer());
-            recognizers.Add(new DojiRecognizer());
-            comboBox_patterns.Items.AddRange(patterns);
+            recognizers.Add(new DragonFlyDojiRecognizer());
+            recognizers.Add(new GravestoneDojiRecognizer());
+            recognizers.Add(new HammerRecognizer());
+            recognizers.Add(new InvertedHammerRecognizer());
+
+            // add pattern name to combobox
+            comboBox_patterns.Items.Add("None");
+            foreach (Recognizer recognizer in recognizers)
+            {
+                comboBox_patterns.Items.Add(recognizer.patternName);
+            }
+
             comboBox_patterns.SelectedIndex = 0;
 
             dateTimePicker_startDate.Value = startDate;
@@ -127,46 +143,24 @@ namespace COP4365_P3
             string selectedPattern = "is" + comboBox_patterns.SelectedItem.ToString();
 
             DojiRecognizer dojiRecognizer = new DojiRecognizer();
+            HammerRecognizer hammerRecognizer = new HammerRecognizer();
             List<int> candlestickIndices = new List<int>();
 
-            candlestickIndices = dojiRecognizer.Recognize(filteredCandlesticks);
-            // Create a dictionary that maps the selectedPattern to the specified function
-/*            Dictionary<string, Func<smartCandlestick, bool>> patternProperties = new Dictionary<string, Func<smartCandlestick, bool>>
+            int selectedIndex = comboBox_patterns.SelectedIndex;
+            // when pattern is None
+            if (selectedIndex == 0) 
             {
-                { "isBullish", candlestick => candlestick.isBullish },
-                { "isBearish", candlestick => candlestick.isBearish },
-                { "isNeutral", candlestick => candlestick.isNeutral },
-                { "isMarubozu", candlestick => candlestick.isMarubozu },
-                { "isDoji", candlestick => candlestick.isDoji },
-                { "isDragonFlyDoji", candlestick => candlestick.isDragonFlyDoji },
-                { "isGravestoneDoji", candlestick => candlestick.isGravestoneDoji },
-                { "isHammer", candlestick => candlestick.isHammer },
-                { "isInvertedHammer", candlestick => candlestick.isInvertedHammer },
+                chart_stock.Annotations.Clear();
+                return;
+            }
+            // when any other pattern
+            else {
+                selectedIndex--;
+            }
 
-            };
-
-            // checks the map to find the appropriate function based on the selected item in the combobox
-            if (patternProperties.TryGetValue(selectedPattern, out Func<smartCandlestick, bool> property))
-            {
-                int index = 0;
-                //DataPoint candlestickPoint;
-                for (index = 0; index < series_OHLC.Points.Count; index++)
-                {
-                    if (property(filteredCandlesticks[index]))
-                        candlestickIndices.Add(index);
-                }
-*//*                foreach (DataPoint candlestickPoint in series_OHLC.Points)
-                {
-                    // takes smartCandlestick and returns a bool
-                    if (property(filteredCandlesticks[index]))
-                    {
-                        ArrowAnnotation arrow = makeArrow(candlestickPoint);
-                        chart_stock.Annotations.Add(arrow);
-                    }
-                    index++;
-                }
-*//*            }
-*/            foreach (int index in candlestickIndices)
+            Recognizer selectedRecognizer = recognizers[selectedIndex];
+            candlestickIndices = selectedRecognizer.Recognize(filteredCandlesticks);
+            foreach (int index in candlestickIndices)
             {
                 DataPoint candlestickPoint = series_OHLC.Points[index];
                 ArrowAnnotation arrow = makeArrow(candlestickPoint);
@@ -186,6 +180,26 @@ namespace COP4365_P3
         private void comboBox_patterns_SelectedIndexChanged(object sender, EventArgs e)
         {
             updateStockChart();
+        }
+
+        // colors the candlesticks based on opening and closing values
+        private void chart_stock_PrePaint(object sender, ChartPaintEventArgs e)
+        {
+            if (e.ChartElement == series_OHLC)
+            {
+                foreach (DataPoint dataPoint in series_OHLC.Points)
+                {
+                    // Change the color of the data point based on its open and close values
+                    if (dataPoint.YValues[2] < dataPoint.YValues[3])
+                    {
+                        dataPoint.Color = Color.Green; // Green color for up days
+                    }
+                    else
+                    {
+                        dataPoint.Color = Color.Red; // Red color for down days
+                    }
+                }
+            }
         }
     }
 }

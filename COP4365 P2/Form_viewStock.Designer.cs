@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dateTimePicker_endDate = new System.Windows.Forms.DateTimePicker();
             this.label_endDate = new System.Windows.Forms.Label();
             this.label_startDate = new System.Windows.Forms.Label();
@@ -100,32 +100,33 @@
             // 
             // chart_stock
             // 
-            chartArea3.AlignWithChartArea = "area_volume";
-            chartArea3.CursorX.IsUserEnabled = true;
-            chartArea3.CursorX.IsUserSelectionEnabled = true;
-            chartArea3.Name = "area_OHLC";
-            chartArea4.CursorX.IsUserEnabled = true;
-            chartArea4.CursorX.IsUserSelectionEnabled = true;
-            chartArea4.Name = "area_volume";
-            this.chart_stock.ChartAreas.Add(chartArea3);
-            this.chart_stock.ChartAreas.Add(chartArea4);
-            legend2.Name = "Legend1";
-            this.chart_stock.Legends.Add(legend2);
+            chartArea1.AlignWithChartArea = "area_volume";
+            chartArea1.CursorX.IsUserEnabled = true;
+            chartArea1.CursorX.IsUserSelectionEnabled = true;
+            chartArea1.Name = "area_OHLC";
+            chartArea2.CursorX.IsUserEnabled = true;
+            chartArea2.CursorX.IsUserSelectionEnabled = true;
+            chartArea2.Name = "area_volume";
+            this.chart_stock.ChartAreas.Add(chartArea1);
+            this.chart_stock.ChartAreas.Add(chartArea2);
+            legend1.Name = "Legend1";
+            this.chart_stock.Legends.Add(legend1);
             this.chart_stock.Location = new System.Drawing.Point(12, 12);
             this.chart_stock.Name = "chart_stock";
-            series3.ChartArea = "area_OHLC";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Candlestick;
-            series3.Legend = "Legend1";
-            series3.Name = "series_OHLC";
-            series3.YValuesPerPoint = 4;
-            series4.ChartArea = "area_volume";
-            series4.Legend = "Legend1";
-            series4.Name = "series_volume";
-            this.chart_stock.Series.Add(series3);
-            this.chart_stock.Series.Add(series4);
+            series1.ChartArea = "area_OHLC";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Candlestick;
+            series1.Legend = "Legend1";
+            series1.Name = "series_OHLC";
+            series1.YValuesPerPoint = 4;
+            series2.ChartArea = "area_volume";
+            series2.Legend = "Legend1";
+            series2.Name = "series_volume";
+            this.chart_stock.Series.Add(series1);
+            this.chart_stock.Series.Add(series2);
             this.chart_stock.Size = new System.Drawing.Size(709, 305);
             this.chart_stock.TabIndex = 20;
             this.chart_stock.Text = "chart_stock";
+            this.chart_stock.PrePaint += new System.EventHandler<System.Windows.Forms.DataVisualization.Charting.ChartPaintEventArgs>(this.chart_stock_PrePaint);
             // 
             // comboBox_patterns
             // 
