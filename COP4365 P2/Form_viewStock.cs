@@ -139,15 +139,17 @@ namespace COP4365_P3
             };
 
             // checks the map to find the appropriate function based on the selected item in the combobox
+            List<int> candlestickIndices = new List<int>();
             if (patternProperties.TryGetValue(selectedPattern, out Func<smartCandlestick, bool> property))
             {
                 int index = 0;
                 //DataPoint candlestickPoint;
-    /*            for (index = 0; index < series_OHLC.Points.Count; index++)
+                for (index = 0; index < series_OHLC.Points.Count; index++)
                 {
-
-                }*/
-                foreach (DataPoint candlestickPoint in series_OHLC.Points)
+                    if (property(filteredCandlesticks[index]))
+                        candlestickIndices.Add(index);
+                }
+/*                foreach (DataPoint candlestickPoint in series_OHLC.Points)
                 {
                     // takes smartCandlestick and returns a bool
                     if (property(filteredCandlesticks[index]))
@@ -157,6 +159,13 @@ namespace COP4365_P3
                     }
                     index++;
                 }
+*/            }
+            foreach (int index in candlestickIndices)
+            {
+                DataPoint candlestickPoint = series_OHLC.Points[index];
+                ArrowAnnotation arrow = makeArrow(candlestickPoint);
+                chart_stock.Annotations.Add(arrow);
+                
             }
             chart_stock.Invalidate();
         }
