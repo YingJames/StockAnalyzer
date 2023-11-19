@@ -21,6 +21,7 @@ namespace COP4365_P3
         private BindingList<smartCandlestick> candlesticks;
         private List<smartCandlestick> allCandlesticks { get; set; }
         List<Recognizer> recognizers = new List<Recognizer>();
+
         Series series_OHLC;
         Series series_volume;
         ChartArea area_OHLC;
@@ -35,11 +36,32 @@ namespace COP4365_P3
             stockSymbol = symbol;
             this.Text = stockSymbol;
 
-            // initialize candlestick chart series
             allCandlesticks = new List<smartCandlestick>(1024);
             allCandlesticks = listOfCandlesticks;
             candlesticks = new BindingList<smartCandlestick>(allCandlesticks);
             chart_stock.DataSource = candlesticks;
+
+            initChartProperties();
+            addRecognizerItems();
+
+            // add pattern name to combobox
+            comboBox_patterns.Items.Add("None");
+            foreach (Recognizer recognizer in recognizers)
+            {
+                comboBox_patterns.Items.Add(recognizer.patternName);
+            }
+
+            comboBox_patterns.SelectedIndex = 0;
+
+            dateTimePicker_startDate.Value = startDate;
+            dateTimePicker_endDate.Value = endDate;
+
+            updateStockChart();
+        }
+
+        private void initChartProperties()
+        {
+            // initialize candlestick chart series
             series_OHLC = chart_stock.Series["series_OHLC"];
             series_volume = chart_stock.Series["series_volume"];
             area_OHLC = chart_stock.ChartAreas["area_OHLC"];
@@ -57,12 +79,10 @@ namespace COP4365_P3
             area_OHLC.AxisY2.Title = "Price";
             area_volume.AxisX.Title = "Date";
             area_volume.AxisY2.Title = "Volume";
+        }
 
-            // combobox for showing patterns
-/*            string[] patterns = new string[] { "None", "Bullish", "Bearish",
-                "Neutral", "Marubozu", "Doji",
-                "DragonFlyDoji", "GravestoneDoji", "Hammer", "InvertedHammer" };
-*/
+        private void addRecognizerItems()
+        {
             recognizers.Add(new BullishRecognizer());
             recognizers.Add(new BearishRecognizer());
             recognizers.Add(new NeutralRecognizer());
@@ -79,21 +99,6 @@ namespace COP4365_P3
 
             recognizers.Add(new PeakRecognizer());
             recognizers.Add(new ValleyRecognizer());
-
-
-            // add pattern name to combobox
-            comboBox_patterns.Items.Add("None");
-            foreach (Recognizer recognizer in recognizers)
-            {
-                comboBox_patterns.Items.Add(recognizer.patternName);
-            }
-
-            comboBox_patterns.SelectedIndex = 0;
-
-            dateTimePicker_startDate.Value = startDate;
-            dateTimePicker_endDate.Value = endDate;
-
-            updateStockChart();
         }
 
         // filters out the candlesticks based on the date time picker
