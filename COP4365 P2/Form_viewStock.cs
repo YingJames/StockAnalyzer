@@ -1,4 +1,5 @@
 ﻿using COP4365_P3.PatternRecognizers;
+using COP4365_P3.PatternRecognizers.MultiCsPatternRecognizers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -71,7 +72,11 @@ namespace COP4365_P3
             recognizers.Add(new GravestoneDojiRecognizer());
             recognizers.Add(new HammerRecognizer());
             recognizers.Add(new InvertedHammerRecognizer());
+            recognizers.Add(new BearishEngulfingRecognizer());
+            recognizers.Add(new BullishEngulfingRecognizer());
+            recognizers.Add(new BullishHaramisRecognizer());
             recognizers.Add(new PeakRecognizer());
+
 
             // add pattern name to combobox
             comboBox_patterns.Items.Add("None");
@@ -172,8 +177,6 @@ namespace COP4365_P3
 
             string selectedPattern = "is" + comboBox_patterns.SelectedItem.ToString();
 
-            DojiRecognizer dojiRecognizer = new DojiRecognizer();
-            HammerRecognizer hammerRecognizer = new HammerRecognizer();
             List<int> candlestickIndices = new List<int>();
 
             int selectedIndex = comboBox_patterns.SelectedIndex;
