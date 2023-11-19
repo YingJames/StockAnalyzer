@@ -209,13 +209,15 @@ namespace COP4365_P3
             candlestickIndices = selectedRecognizer.Recognize(filteredCandlesticks);
             foreach (int index in candlestickIndices)
             {
-                DataPoint candlestickPoint = series_OHLC.Points[index];
-                ArrowAnnotation arrow = makeArrow(candlestickPoint);
-                chart_stock.Annotations.Add(arrow);
+                for (int subIndex = index; subIndex >= index - selectedRecognizer.patternSize + 1; subIndex--)
+                {
+                    DataPoint candlestickPoint = series_OHLC.Points[subIndex];
+                    ArrowAnnotation arrow = makeArrow(candlestickPoint);
+                    chart_stock.Annotations.Add(arrow);
+                }
 
                // RectangleAnnotation rectangle = makeRectangle(index, selectedRecognizer.patternSize);
                 //chart_stock.Annotations.Add(rectangle);
-                break;
             }
 
             chart_stock.Invalidate();
