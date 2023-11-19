@@ -49,9 +49,10 @@
   <ItemGroup>
     <Compile Include="candlestick.cs" />
     <Compile Include="PatternRecognizers\MultiCsPatternRecognizers\BearishEngulfingRecognizer.cs" />
-    <Compile Include="PatternRecognizers\MultiCsPatternRecognizers\BearishHaramisRecognizer.cs" />
+    <Compile Include="PatternRecognizers\MultiCsPatternRecognizers\BearishHaramiRecognizer.cs" />
     <Compile Include="PatternRecognizers\MultiCsPatternRecognizers\BullishEngulfingRecognizer.cs" />
-    <Compile Include="PatternRecognizers\MultiCsPatternRecognizers\BullishHaramisRecognizer.cs" />
+    <Compile Include="PatternRecognizers\MultiCsPatternRecognizers\BullishHaramiRecognizer.cs" />
+    <Compile Include="PatternRecognizers\MultiCsPatternRecognizers\ValleyRecognizer.cs" />
     <Compile Include="PatternRecognizers\SingleCsPatternRecognizers\BearishRecognizer.cs" />
     <Compile Include="PatternRecognizers\SingleCsPatternRecognizers\BullishRecognizer.cs" />
     <Compile Include="PatternRecognizers\SingleCsPatternRecognizers\DojiRecognizer.cs" />

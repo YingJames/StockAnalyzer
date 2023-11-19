@@ -74,8 +74,11 @@ namespace COP4365_P3
             recognizers.Add(new InvertedHammerRecognizer());
             recognizers.Add(new BearishEngulfingRecognizer());
             recognizers.Add(new BullishEngulfingRecognizer());
-            recognizers.Add(new BullishHaramisRecognizer());
+            recognizers.Add(new BullishHaramiRecognizer());
+            recognizers.Add(new BearishHaramiRecognizer());
+
             recognizers.Add(new PeakRecognizer());
+            recognizers.Add(new ValleyRecognizer());
 
 
             // add pattern name to combobox

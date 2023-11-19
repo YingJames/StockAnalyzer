@@ -8,7 +8,7 @@ namespace COP4365_P3.PatternRecognizers.MultiCsPatternRecognizers
 {
     internal class BearishEngulfingRecognizer : Recognizer
     {
-        public BearishEngulfingRecognizer() : base("BearishEngulfing", 2) { }
+        public BearishEngulfingRecognizer() : base("Bearish Engulfing", 2) { }
 
         public override bool RecognizePattern(List<smartCandlestick> lscs)
         {
@@ -19,7 +19,7 @@ namespace COP4365_P3.PatternRecognizers.MultiCsPatternRecognizers
             bool engulfingTail = largerScs.high > smallerScs.high && largerScs.low < smallerScs.low;
 
             bool hasNoLowerTail = smallerScs.bottomTail == 0;
-            return correctPattern && engulfingBody && hasNoLowerTail;
+            return correctPattern && engulfingBody;
 
         }
     }

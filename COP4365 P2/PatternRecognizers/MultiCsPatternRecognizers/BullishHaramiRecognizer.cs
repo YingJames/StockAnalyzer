@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace COP4365_P3.PatternRecognizers.MultiCsPatternRecognizers
 {
-    internal class BullishHaramisRecognizer:Recognizer
+    internal class BullishHaramiRecognizer:Recognizer
     {
-        public BullishHaramisRecognizer() : base("BullishHaramis", 2) { }
+        public BullishHaramiRecognizer() : base("Bullish Harami", 2) { }
 
         public override bool RecognizePattern(List<smartCandlestick> lscs)
         {
@@ -18,8 +18,7 @@ namespace COP4365_P3.PatternRecognizers.MultiCsPatternRecognizers
             bool engulfingBody = largerScs.topPrice > smallerScs.topPrice && largerScs.bottomPrice < smallerScs.bottomPrice;
             bool engulfingTail = largerScs.high > smallerScs.high && largerScs.low < smallerScs.low;
 
-            bool hasNoUpperTail = smallerScs.topTail == 0;
-            return correctPattern && engulfingBody && engulfingTail && hasNoUpperTail;
+            return correctPattern && engulfingBody && engulfingTail;
             
         }
     }

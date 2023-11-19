@@ -8,7 +8,7 @@ namespace COP4365_P3.PatternRecognizers.MultiCsPatternRecognizers
 {
     internal class BullishEngulfingRecognizer : Recognizer
     {
-        public BullishEngulfingRecognizer() : base("BullishEngulfing", 2) { }
+        public BullishEngulfingRecognizer() : base("Bullish Engulfing", 2) { }
 
         public override bool RecognizePattern(List<smartCandlestick> lscs)
         {
