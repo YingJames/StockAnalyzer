@@ -42,16 +42,6 @@ namespace COP4365_P1
             series_volume.XValueMember = "date";
             series_volume.YValueMembers = "volume";
 
-            // newest candlestick objects on left first
-            area_OHLC.AxisX.IsReversed = true;
-            area_volume.AxisX.IsReversed = true;
-
-            // keep price y-axis on the left
-            area_OHLC.AxisY.Enabled = AxisEnabled.False;
-            area_OHLC.AxisY2.Enabled = AxisEnabled.True;
-            area_volume.AxisY.Enabled = AxisEnabled.False;
-            area_volume.AxisY2.Enabled = AxisEnabled.True;
-
             // add axis titles
             area_OHLC.AxisX.Title = "Date";
             area_OHLC.AxisY2.Title = "Price";
@@ -92,6 +82,7 @@ namespace COP4365_P1
         // on the openFileDialog click, read the data of the chosen file
         private void button_openStockOnClick(object sender, EventArgs e)
         {
+            tempList.Clear();
             openFileDialog_stockLoader.InitialDirectory = stockDataDirectory;
 
             // filter the files using stock symbol
@@ -140,7 +131,7 @@ namespace COP4365_P1
         // filters out the candlesticks based on the date time picker
         private void filterStock()
         {
-            
+            // tempList is shown from earliest to latest
             List<candlestick> reversedTempList = new List<candlestick>();
             foreach(candlestick candlestick in tempList)
             {
@@ -153,10 +144,11 @@ namespace COP4365_P1
                 }
             }
 
-            reversedTempList.Reverse();
+            //reversedTempList.Reverse();
 
             // create the list of candlesticks we will bind to
             candlesticks = new BindingList<candlestick>();
+            candlesticks.Clear();
             // connect the dataGridView to the list of candlesticks
             dataGridView_candlesticks.DataSource = candlesticks;
             foreach (candlestick candlestick in reversedTempList)
