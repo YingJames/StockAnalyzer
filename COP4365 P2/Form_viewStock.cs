@@ -20,7 +20,7 @@ namespace COP4365_P3
         string stockSymbol { get; set; }
         private BindingList<smartCandlestick> candlesticks;
         private List<smartCandlestick> allCandlesticks { get; set; }
-        List<Recognizer> recognizers = new List<Recognizer>();
+        List<Recognizer> allRecognizers = new List<Recognizer>();
 
         Series series_OHLC;
         Series series_volume;
@@ -46,7 +46,7 @@ namespace COP4365_P3
 
             // add pattern name to combobox
             comboBox_patterns.Items.Add("None");
-            foreach (Recognizer recognizer in recognizers)
+            foreach (Recognizer recognizer in allRecognizers)
             {
                 comboBox_patterns.Items.Add(recognizer.patternName);
             }
@@ -83,22 +83,22 @@ namespace COP4365_P3
 
         private void addRecognizerItems()
         {
-            recognizers.Add(new BullishRecognizer());
-            recognizers.Add(new BearishRecognizer());
-            recognizers.Add(new NeutralRecognizer());
-            recognizers.Add(new MarubozuRecognizer());
-            recognizers.Add(new DojiRecognizer());
-            recognizers.Add(new DragonFlyDojiRecognizer());
-            recognizers.Add(new GravestoneDojiRecognizer());
-            recognizers.Add(new HammerRecognizer());
-            recognizers.Add(new InvertedHammerRecognizer());
-            recognizers.Add(new BearishEngulfingRecognizer());
-            recognizers.Add(new BullishEngulfingRecognizer());
-            recognizers.Add(new BullishHaramiRecognizer());
-            recognizers.Add(new BearishHaramiRecognizer());
+            allRecognizers.Add(new BullishRecognizer());
+            allRecognizers.Add(new BearishRecognizer());
+            allRecognizers.Add(new NeutralRecognizer());
+            allRecognizers.Add(new MarubozuRecognizer());
+            allRecognizers.Add(new DojiRecognizer());
+            allRecognizers.Add(new DragonFlyDojiRecognizer());
+            allRecognizers.Add(new GravestoneDojiRecognizer());
+            allRecognizers.Add(new HammerRecognizer());
+            allRecognizers.Add(new InvertedHammerRecognizer());
+            allRecognizers.Add(new BearishEngulfingRecognizer());
+            allRecognizers.Add(new BullishEngulfingRecognizer());
+            allRecognizers.Add(new BullishHaramiRecognizer());
+            allRecognizers.Add(new BearishHaramiRecognizer());
 
-            recognizers.Add(new PeakRecognizer());
-            recognizers.Add(new ValleyRecognizer());
+            allRecognizers.Add(new PeakRecognizer());
+            allRecognizers.Add(new ValleyRecognizer());
         }
 
         // filters out the candlesticks based on the date time picker
@@ -205,7 +205,7 @@ namespace COP4365_P3
                 selectedIndex--;
             }
 
-            Recognizer selectedRecognizer = recognizers[selectedIndex];
+            Recognizer selectedRecognizer = allRecognizers[selectedIndex];
             candlestickIndices = selectedRecognizer.Recognize(filteredCandlesticks);
             foreach (int index in candlestickIndices)
             {

@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 
 namespace COP4365_P3.PatternRecognizers.MultiCsPatternRecognizers
 {
+    
+    // bearish harami recognizer based off of Recognizer class
     internal class BearishHaramiRecognizer : Recognizer
     {
+        // inherits from the Recognizer constructor to make a 2 candlestick pattern recognizer
         public BearishHaramiRecognizer() : base("Bearish Harami", 2) { }
 
+        // overrides RecognizePattern for the bearish harami implementation
         public override bool RecognizePattern(List<smartCandlestick> lscs)
         {
             smartCandlestick largerScs = lscs[0];
