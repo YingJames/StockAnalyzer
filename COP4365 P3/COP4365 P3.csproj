@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{5AC836B3-A800-4702-9529-010486838B91}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>COP4365_P1</RootNamespace>
-    <AssemblyName>COP4365 P1</AssemblyName>
+    <RootNamespace>COP4365_P3</RootNamespace>
+    <AssemblyName>COP4365 P3</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -48,6 +48,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="candlestick.cs" />
+    <Compile Include="PatternRecognizers\MultiCsPatternRecognizers\BearishEngulfingRecognizer.cs" />
+    <Compile Include="PatternRecognizers\MultiCsPatternRecognizers\BearishHaramiRecognizer.cs" />
+    <Compile Include="PatternRecognizers\MultiCsPatternRecognizers\BullishEngulfingRecognizer.cs" />
+    <Compile Include="PatternRecognizers\MultiCsPatternRecognizers\BullishHaramiRecognizer.cs" />
+    <Compile Include="PatternRecognizers\MultiCsPatternRecognizers\ValleyRecognizer.cs" />
+    <Compile Include="PatternRecognizers\SingleCsPatternRecognizers\BearishRecognizer.cs" />
+    <Compile Include="PatternRecognizers\SingleCsPatternRecognizers\BullishRecognizer.cs" />
+    <Compile Include="PatternRecognizers\SingleCsPatternRecognizers\DojiRecognizer.cs" />
     <Compile Include="Form_viewStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,8 +68,16 @@
     <Compile Include="Form_stockLoader.Designer.cs">
       <DependentUpon>Form_stockLoader.cs</DependentUpon>
     </Compile>
+    <Compile Include="PatternRecognizers\SingleCsPatternRecognizers\DragonFlyDojiRecognizer.cs" />
+    <Compile Include="PatternRecognizers\SingleCsPatternRecognizers\GravestoneDojiRecognizer.cs" />
+    <Compile Include="PatternRecognizers\SingleCsPatternRecognizers\HammerRecognizer.cs" />
+    <Compile Include="PatternRecognizers\SingleCsPatternRecognizers\InvertedHammerRecognizer.cs" />
+    <Compile Include="PatternRecognizers\SingleCsPatternRecognizers\MarubozuRecognizer.cs" />
+    <Compile Include="PatternRecognizers\SingleCsPatternRecognizers\NeutralRecognizer.cs" />
+    <Compile Include="PatternRecognizers\MultiCsPatternRecognizers\PeakRecognizer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recognizer.cs" />
     <Compile Include="smartCandlestick.cs" />
     <EmbeddedResource Include="Form_viewStock.resx">
       <DependentUpon>Form_viewStock.cs</DependentUpon>
@@ -77,6 +93,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\DataSources\candlestick.datasource" />
     <None Include="Properties\Settings.settings">
