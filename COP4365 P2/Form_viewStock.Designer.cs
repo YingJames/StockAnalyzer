@@ -133,7 +133,7 @@
             this.comboBox_patterns.FormattingEnabled = true;
             this.comboBox_patterns.Location = new System.Drawing.Point(408, 375);
             this.comboBox_patterns.Name = "comboBox_patterns";
-            this.comboBox_patterns.Size = new System.Drawing.Size(222, 21);
+            this.comboBox_patterns.Size = new System.Drawing.Size(105, 21);
             this.comboBox_patterns.TabIndex = 21;
             this.comboBox_patterns.SelectedIndexChanged += new System.EventHandler(this.comboBox_patterns_SelectedIndexChanged);
             // 

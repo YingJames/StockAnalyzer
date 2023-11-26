@@ -142,40 +142,6 @@ namespace COP4365_P3
             return arrow;
         }
 
-/*        private RectangleAnnotation makeRectangle(int candlestickPointIndex, int patternSize)
-        {
-            RectangleAnnotation rectangle = new RectangleAnnotation();
-            DataPoint candlestickPoint = series_OHLC.Points[candlestickPointIndex];
-            DataPoint lastCandlestickPoint = series_OHLC.Points[candlestickPointIndex - patternSize + 1];
-            //double csPointXValue = 
-            double startX = series_OHLC.Points[candlestickPointIndex].XValue;
-            double endX = series_OHLC.Points[candlestickPointIndex - patternSize + 1].XValue;
-*//*
-            double minY = series_OHLC.Points[candlestickPointIndex].YValues.Min();
-            double maxY = series_OHLC.Points[candlestickPointIndex].YValues.Max();
-            for (int i = candlestickPointIndex; i > candlestickPointIndex - patternSize; i--)
-            {
-                double currentYMin = series_OHLC.Points[i].YValues.Min();
-                double currentYMax = series_OHLC.Points[i].YValues.Max();
-                if (currentYMin < minY)
-                    minY = currentYMin;
-
-                if (currentYMax > maxY)
-                    maxY = currentYMax;
-            }*//*
-            //rectangle.SetAnchor(candlestickPoint, lastCandlestickPoint);
-            rectangle.AnchorDataPoint = series_OHLC.Points[candlestickPointIndex];
-            //rectangle.Height = maxY - minY;
-            //rectangle.Width = (double) (startX - endX);
-            rectangle.Height = 5;
-            rectangle.Width = 5;
-            rectangle.LineColor = Color.Yellow;
-            rectangle.IsSizeAlwaysRelative = true;
-            rectangle.LineWidth = 1;
-
-            return rectangle;
-
-        }*/
 
         // filters the candlesticks based on date range and creates annotations on the chart
         private void updateStockChart()
