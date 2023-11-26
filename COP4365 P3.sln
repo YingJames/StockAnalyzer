@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34018.315
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COP4365 P3", "COP4365 P2\COP4365 P3.csproj", "{5AC836B3-A800-4702-9529-010486838B91}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COP4365 P3", "COP4365 P3\COP4365 P3.csproj", "{5AC836B3-A800-4702-9529-010486838B91}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
