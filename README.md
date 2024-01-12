@@ -1,11 +1,7 @@
 <a name="readme-top"></a>
 
 <!-- PROJECT SHIELDS -->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Issues][issues-shield]][issues-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
-
 
 <!-- PROJECT LOGO -->
 <br />
@@ -14,10 +10,10 @@
     <img src="./src/logo.svg" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Zap Chat</h3>
+  <h3 align="center">Stock Pattern Recognizer/h3>
 
   <p align="center">
-    The real-time global messaging app
+    Analyze multiple stock patterns
     <br />
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
