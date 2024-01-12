@@ -1,11 +1,7 @@
 <a name="readme-top"></a>
 
 <!-- PROJECT SHIELDS -->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Issues][issues-shield]][issues-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
-
 
 <!-- PROJECT LOGO -->
 <br />
@@ -14,10 +10,10 @@
     <img src="./src/logo.svg" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Zap Chat</h3>
+  <h3 align="center">Stock Analyzer</h3>
 
   <p align="center">
-    The real-time global messaging app
+    Analyze multiple stock patterns for stock patterns
     <br />
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
@@ -62,13 +58,21 @@ Quickly chat with anyone over the internet with little setup. This project helpe
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Acquired Concepts
-
+* Polymorphism - Implementing pattern recognition via abstract classes and derived concrete classes is a key goal. Students need to demonstrate understanding of polymorphism and when/how to apply it.
+* Inheritance - Smart candlestick class must inherit from base candlestick class to avoid rewriting and demonstrate understanding of inheritance.
+* Abstraction - Use of abstract classes and interfaces to define common APIs.
+* Encapsulation - Breaking up functionality into separate well-defined methods instead of one large complex method.
+* Reusability - Leveraging existing frameworks/classes (like Candlestick) instead of reinventing the wheel.
+* Data Binding - Using data binding to connect data to the UI instead of manual additions.
+* Event-driven programming - Allowing user to trigger events (like selecting a pattern) that drive application behavior.
+* Input validation - Checking for and handling invalid conditions.
+* Testing & debugging - Ensuring application works as intended under different conditions.
 
 ### Built With
 
  * [React][React-url]
  * [D3.js][D3.js-url]
-
+   
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -82,7 +86,7 @@ Quickly chat with anyone over the internet with little setup. This project helpe
 
 2. Clone the repo
    ```sh
-   git clone https://github.com/YingJames/StockPatternRecognizer.git
+   git clone https://github.com/YingJames/StockAnalyzer.git
    ```
 3. Install NPM packages
    ```sh
@@ -111,16 +115,8 @@ James Yab - [LinkedIn](https://www.linkedin.com/in/james-yab/) - jamesy148@usf.e
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/YingJames/StockPatternRecognizer.svg?style=for-the-badge
-[contributors-url]: https://github.com/YingJames/ZapChat/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/YingJames/StockPatternRecognizer.svg?style=for-the-badge
-[forks-url]: https://github.com/YingJames/ZapChat/network/members
-[issues-shield]: https://img.shields.io/github/issues/YingJames/StockPatternRecognizer.svg?style=for-the-badge
-[issues-url]: https://github.com/YingJames/StockPatternRecognizer/issues
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/james-yab/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
 [D3.js-url]: https://d3js.org/
-[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[Bootstrap-url]: https://getbootstrap.com
