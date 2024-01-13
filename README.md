@@ -6,10 +6,6 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="./src/logo.svg" alt="Logo" width="80" height="80">
-  </a>
-
   <h3 align="center">Stock Analyzer</h3>
 
   <p align="center">
@@ -64,26 +60,18 @@ Quickly chat with anyone over the internet with little setup. This project helpe
 * Encapsulation - Breaking up functionality into separate well-defined methods instead of one large complex method.
 * Data Binding - Using data binding to connect data to the UI instead of manual additions.
 * Event-driven programming - Allowing user to trigger events (like selecting a pattern) that drive application behavior.
-* Input validation - Checking for and handling invalid conditions.
-* Testing & debugging - Ensuring application works as intended under different conditions.
 
 ### Built With
 
- * DotNet Windows Forms
+ * Windows Forms (.Net Framework using C#)
    
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-
-
 
 
 
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-
+![Screenshot 2024-01-13 132939](https://github.com/YingJames/StockAnalyzer/assets/21976362/d55fe35a-9c75-435f-a438-b66d6644231a)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
