@@ -37,7 +37,6 @@
       </ul>
     </li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -65,13 +64,39 @@ Quickly chat with anyone over the internet with little setup. This project helpe
 
  * Windows Forms (.Net Framework using C#)
    
-
-
-
-
 <!-- USAGE EXAMPLES -->
+
 ## Usage
-![Screenshot 2024-01-13 132939](https://github.com/YingJames/StockAnalyzer/assets/21976362/d55fe35a-9c75-435f-a438-b66d6644231a)
+![Screenshot 2024-01-13 141447](https://github.com/YingJames/StockAnalyzer/assets/21976362/0acb01c3-fb4c-4a35-b43e-8326164e9840)
+The application allows analyzing and visualizing stock data to identify candlestick patterns. The main workflow is as follows:
+Loading Stock Data
+
+* Use the Open File Dialog to select one or more stock data files to load
+* Stock data for multiple symbols can be loaded and analyzed
+
+Visualizing Stocks
+
+* The selected stock symbols are each displayed in a separate window in candlestick chart format for analysis
+* The charts display the Open, High, Low and Close values for each candlestick time period
+
+Applying Filters
+
+* Date range filters can be applied to only show the candlesticks in a specific date range
+
+Selecting Patterns
+
+* Single and multi-candlestick patterns can be selected for pattern recognition from the dropdown combobox
+* Available single candlestick patterns include bearish, bullish, neutral, marubozu, doji, gravestone doji, dragonfly doji, hammer, and inverted hammer
+* Available multi-candlestick patterns include bearish and bullish engulfing, bearish and bullish harami, peak, and valley
+
+Analyzing Patterns
+
+* Once a pattern is selected, the charts are analysis and the identified patterns are annotated
+The annotation highlights the candlesticks forming the specified pattern
+
+Analyzing Multiple Stocks
+
+* The above workflow allows comparing multiple stock charts side-by-side in separate windows
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
