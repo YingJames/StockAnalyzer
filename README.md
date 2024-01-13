@@ -62,7 +62,6 @@ Quickly chat with anyone over the internet with little setup. This project helpe
 * Inheritance - Smart candlestick class must inherit from base candlestick class to avoid rewriting and demonstrate understanding of inheritance.
 * Abstraction - Use of abstract classes and interfaces to define common APIs.
 * Encapsulation - Breaking up functionality into separate well-defined methods instead of one large complex method.
-* Reusability - Leveraging existing frameworks/classes (like Candlestick) instead of reinventing the wheel.
 * Data Binding - Using data binding to connect data to the UI instead of manual additions.
 * Event-driven programming - Allowing user to trigger events (like selecting a pattern) that drive application behavior.
 * Input validation - Checking for and handling invalid conditions.
@@ -70,8 +69,7 @@ Quickly chat with anyone over the internet with little setup. This project helpe
 
 ### Built With
 
- * [React][React-url]
- * [D3.js][D3.js-url]
+ * DotNet Windows Forms
    
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -79,22 +77,7 @@ Quickly chat with anyone over the internet with little setup. This project helpe
 
 
 
-<!-- GETTING STARTED -->
-## Getting Started
 
-### Installation
-
-2. Clone the repo
-   ```sh
-   git clone https://github.com/YingJames/StockAnalyzer.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -117,6 +100,3 @@ James Yab - [LinkedIn](https://www.linkedin.com/in/james-yab/) - jamesy148@usf.e
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/james-yab/
-[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[React-url]: https://reactjs.org/
-[D3.js-url]: https://d3js.org/
